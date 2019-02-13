@@ -105,7 +105,50 @@ public void Show () {
 <div dir="rtl">VERTICAL_GRAVITY و HORIZONTAL_GRAVITY موقعیت قرار گیری بنر در صفحه هست و میتواند مقادیر زیر باشد</div>
 
 ```
-TOP - BOTTOM - LEFT - RIGHT - CENTER
+Gravity.TOP - Gravity.BOTTOM - Gravity.LEFT - Gravity.RIGHT - Gravity.CENTER
 ```
 
+<div dir="rtl">به عنوان مثال میتونید به این شکل درخواست تبلیغ دهید</div>
 
+```cs
+public void Show () {
+  TapsellPlus.showBannerAd (ZONE_ID, BannerType.BANNER_320x50, Gravity.BOTTOM, Gravity.CENTER);
+}
+```
+
+## <div dir="rtl">آموزش تبلیغات همنما بنری</div>
+
+<div dir="rtl">مطابق کد زیر درخواست تبلیغ دهید</div>
+
+```cs
+public void Request () {
+  TapsellPlus.requestNativeBanner (this, ZONE_ID,
+    (TapsellNativeBannerAd result) => {
+      Debug.Log ("on response");
+      NativeBannerScene.nativeAd = result;
+    },
+    (TapsellError error) => {
+      Debug.Log ("Error " + error.error);
+    }
+  );
+}
+```
+
+<div dir="rtl">متغیر برگردانده شده در on response محتویات تبلیغ هست و برای نمایش تبلیغ باید مطابق جدول زیر ازش استفاده کنید</div>
+
+|           function          |     usage     |
+|:---------------------------:|:-------------:|
+|         getTitle  ()        |     عنوان     |
+|      getDescription  ()     |    توضیحات    |
+|         getIcon  ()         |      آیکن     |
+| getLandscapeBannerImage  () |   تصویر افقی  |
+|  getPortraitBannerImage  () |  تصویر عمودی  |
+|     getCallToAction  (),    | متن دکمه کلیک |
+
+<div dir="rtl">برای باز کردن تبلیغ زمان کلیک کاربر میتونید از این متد استفاده کنید</div>
+
+```cs
+nativeAd.clicked ();
+```
+
+برای دیدن یک نمونه پیاده سازی شده میتونید همین پروژه در گیت‌هاب را بررسی کنید
