@@ -74,3 +74,38 @@ public void Show () {
   );
 }
 ```
+
+## <div dir="rtl">آموزش تبلیغات بینابینی</div>
+
+<div dir="rtl">مطابق تبلیغات جایزه‌ای پیش برید فقط زمان درخواست تبلیغ از متد TapsellPlus.requestInterstitial استفاده کنید</div>
+
+
+## <div dir="rtl">آموزش تبلیغات بنر استاندارد</div>
+
+<div dir="rtl">مطابق کد زیر میتونید بنر استاندارد نمایش دهید</div>
+
+```cs
+public void Show () {
+  TapsellPlus.showBannerAd (ZONE_ID, BANNER_TYPE, VERTICAL_GRAVITY, HORIZONTAL_GRAVITY);
+}
+```
+
+<div dir="rtl">BANNER_TYPE سایز نمایش بنر هست و میتواند مقادیر زیر باشد</div>
+
+|     keyword    |   size  |
+|:--------------:|:-------:|
+|  BANNER_320x50 |  320x50 |
+| BANNER_320x100 | 320x100 |
+| BANNER_250x250 | 250x250 |
+| BANNER_300x250 | 300x250 |
+|  BANNER_468x60 |  468x60 |
+|  BANNER_728x90 |  728x90 |
+
+
+<div dir="rtl">VERTICAL_GRAVITY و HORIZONTAL_GRAVITY موقعیت قرار گیری بنر در صفحه هست و میتواند مقادیر زیر باشد</div>
+
+```
+TOP - BOTTOM - LEFT - RIGHT - CENTER
+```
+
+
