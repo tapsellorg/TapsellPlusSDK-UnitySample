@@ -14,19 +14,30 @@
 
 ```gradle
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+    
+  implementation 'com.google.code.gson:gson:2.8.5'
+  implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+  implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+  implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
+  implementation 'ir.tapsell.sdk:tapsell-sdk-android:4.1.5'
 
-    implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
-    implementation 'ir.tapsell.sdk:tapsell-sdk-android:4.1.4'
+  implementation 'com.unity3d.ads:unity-ads:3.0.0'
+  implementation 'com.google.android.gms:play-services-ads:17.1.3'
+  implementation 'com.google.android.gms:play-services-basement:16.2.0'
+  implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
+  implementation 'com.google.android.gms:play-services-location:16.0.0'
+}
+```
 
-    implementation 'com.google.android.gms:play-services-ads:15.0.1'
-    implementation 'com.google.android.gms:play-services-basement:15.0.1'
-    implementation 'com.google.android.gms:play-services-ads-identifier:15.0.1'
-    implementation 'com.google.android.gms:play-services-location:15.0.1'
-    implementation 'com.unity3d.ads:unity-ads:3.0.0'
+<div dir="rtl">خطوط زیر را در بخش android فایل mainTemplate.gradle اضافه کنید.</div>
+
+```gradle
+android {
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
 }
 ```
 
@@ -51,7 +62,7 @@ public void Request () {
       Debug.Log ("on response " + zoneId);
     },
     (TapsellError error) => {
-      Debug.Log ("Error " + error.error);
+      Debug.Log ("Error " + error.message);
     }
   );
 }
@@ -70,6 +81,9 @@ public void Show () {
     },
     (string zoneId) => {
       Debug.Log ("onReward " + zoneId);
+    },
+    (TapsellError error) => {
+      Debug.Log ("onError " + error.message);
     }
   );
 }
@@ -85,9 +99,13 @@ public void Show () {
 <div dir="rtl">مطابق کد زیر میتونید بنر استاندارد نمایش دهید</div>
 
 ```cs
-public void Show () {
-  TapsellPlus.showBannerAd (ZONE_ID, BANNER_TYPE, VERTICAL_GRAVITY, HORIZONTAL_GRAVITY);
-}
+TapsellPlus.showBannerAd (ZONE_ID, BANNER_TYPE, VERTICAL_GRAVITY, HORIZONTAL_GRAVITY,
+  (string zoneId) => {
+    Debug.Log ("on response " + zoneId);
+  },
+  (TapsellError error) => {
+    Debug.Log ("Error " + error.message);
+  });
 ```
 
 <div dir="rtl">BANNER_TYPE سایز نمایش بنر هست و میتواند مقادیر زیر باشد</div>
@@ -111,9 +129,13 @@ Gravity.TOP - Gravity.BOTTOM - Gravity.LEFT - Gravity.RIGHT - Gravity.CENTER
 <div dir="rtl">به عنوان مثال میتونید به این شکل درخواست تبلیغ دهید</div>
 
 ```cs
-public void Show () {
-  TapsellPlus.showBannerAd (ZONE_ID, BannerType.BANNER_320x50, Gravity.BOTTOM, Gravity.CENTER);
-}
+TapsellPlus.showBannerAd (ZONE_ID, BannerType.BANNER_300x250, Gravity.BOTTOM, Gravity.CENTER,
+  (string zoneId) => {
+    Debug.Log ("on response " + zoneId);
+  },
+  (TapsellError error) => {
+    Debug.Log ("Error " + error.message);
+  });
 ```
 
 ## <div dir="rtl">آموزش تبلیغات همنما بنری</div>
@@ -125,10 +147,10 @@ public void Request () {
   TapsellPlus.requestNativeBanner (this, ZONE_ID,
     (TapsellNativeBannerAd result) => {
       Debug.Log ("on response");
-      NativeBannerScene.nativeAd = result;
+      //show ad
     },
     (TapsellError error) => {
-      Debug.Log ("Error " + error.error);
+      Debug.Log ("Error " + error.message);
     }
   );
 }
@@ -151,4 +173,4 @@ public void Request () {
 nativeAd.clicked ();
 ```
 
-برای دیدن یک نمونه پیاده سازی شده میتونید همین پروژه در گیت‌هاب را بررسی کنید
+<div dir="rtl">برای دیدن یک نمونه پیاده سازی شده میتونید همین پروژه در گیت‌هاب را بررسی کنید</div>
