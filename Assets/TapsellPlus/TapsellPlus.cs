@@ -24,7 +24,7 @@ namespace TapsellPlusSDK {
 	
 	[Serializable]
 	public class TapsellError {
-		public string error;
+		public string message;
 		public string zoneId;
 	}
 
@@ -77,13 +77,14 @@ namespace TapsellPlusSDK {
 		private static AndroidJavaClass tapsellPlus;
 		#endif
 
-		private static Dictionary<string, Action<string>> responsePool = new Dictionary<string, Action<string>> ();
+		private static Dictionary<string, Action<string>> requestResponsePool = new Dictionary<string, Action<string>> ();
 		private static Dictionary<string, Action<TapsellNativeBannerAd>> nativeBannerResponsePool = new Dictionary<string, Action<TapsellNativeBannerAd>> ();
-		private static Dictionary<string, Action<TapsellError>> errorPool = new Dictionary<string, Action<TapsellError>> ();
+		private static Dictionary<string, Action<TapsellError>> requestErrorPool = new Dictionary<string, Action<TapsellError>> ();
 
 		private static Dictionary<string, Action<string>> openAdPool = new Dictionary<string, Action<string>> ();
 		private static Dictionary<string, Action<string>> closeAdPool = new Dictionary<string, Action<string>> ();
 		private static Dictionary<string, Action<string>> rewardPool = new Dictionary<string, Action<string>> ();
+		private static Dictionary<string, Action<TapsellError>> errorPool = new Dictionary<string, Action<TapsellError>> ();
 		
 		#if UNITY_ANDROID && !UNITY_EDITOR
 		private static MonoBehaviour mMonoBehaviour;
@@ -110,20 +111,26 @@ namespace TapsellPlusSDK {
 			#endif
 		}
 
+		public static void setDebugMode (int logLevel) {
+			#if UNITY_ANDROID && !UNITY_EDITOR
+			tapsellPlus.CallStatic ("setDebugMode", logLevel);
+			#endif
+		}
+
 		public static void requestRewardedVideo (
 			string zoneId, Action<string> onRequestResponse, Action<TapsellError> onRequestError) {
 
 			#if UNITY_ANDROID && !UNITY_EDITOR
-			if (responsePool.ContainsKey (zoneId)) {
-				responsePool.Remove (zoneId);
+			if (requestResponsePool.ContainsKey (zoneId)) {
+				requestResponsePool.Remove (zoneId);
 			}
 
-			if (errorPool.ContainsKey (zoneId)) {
-				errorPool.Remove (zoneId);
+			if (requestErrorPool.ContainsKey (zoneId)) {
+				requestErrorPool.Remove (zoneId);
 			}
 
-			responsePool.Add (zoneId, onRequestResponse);
-			errorPool.Add (zoneId, onRequestError);
+			requestResponsePool.Add (zoneId, onRequestResponse);
+			requestErrorPool.Add (zoneId, onRequestError);
 
 			tapsellPlus.CallStatic ("requestRewardedVideo", zoneId);
 			#endif
@@ -133,16 +140,16 @@ namespace TapsellPlusSDK {
 			string zoneId, Action<string> onRequestResponse, Action<TapsellError> onRequestError) {
 				
 			#if UNITY_ANDROID && !UNITY_EDITOR
-			if (responsePool.ContainsKey (zoneId)) {
-				responsePool.Remove (zoneId);
+			if (requestResponsePool.ContainsKey (zoneId)) {
+				requestResponsePool.Remove (zoneId);
 			}
 
-			if (errorPool.ContainsKey (zoneId)) {
-				errorPool.Remove (zoneId);
+			if (requestErrorPool.ContainsKey (zoneId)) {
+				requestErrorPool.Remove (zoneId);
 			}
 
-			responsePool.Add (zoneId, onRequestResponse);
-			errorPool.Add (zoneId, onRequestError);
+			requestResponsePool.Add (zoneId, onRequestResponse);
+			requestErrorPool.Add (zoneId, onRequestError);
 
 			tapsellPlus.CallStatic ("requestInterstitial", zoneId);
 			#endif
@@ -154,24 +161,24 @@ namespace TapsellPlusSDK {
 			#if UNITY_ANDROID && !UNITY_EDITOR
 			mMonoBehaviour = monoBehaviour;
 
-			if (responsePool.ContainsKey (zoneId)) {
-				responsePool.Remove (zoneId);
+			if (nativeBannerResponsePool.ContainsKey (zoneId)) {
+				nativeBannerResponsePool.Remove (zoneId);
 			}
 
-			if (errorPool.ContainsKey (zoneId)) {
-				errorPool.Remove (zoneId);
+			if (requestErrorPool.ContainsKey (zoneId)) {
+				requestErrorPool.Remove (zoneId);
 			}
 
 			nativeBannerResponsePool.Add (zoneId, onRequestResponse);
-			errorPool.Add (zoneId, onRequestError);
+			requestErrorPool.Add (zoneId, onRequestError);
 
 			tapsellPlus.CallStatic ("requestNativeBanner", zoneId);
 			#endif
 		}
 
 		public static void onRequestResponse (String zoneId) {
-			if (responsePool.ContainsKey (zoneId)) {
-				responsePool[zoneId] (zoneId);
+			if (requestResponsePool.ContainsKey (zoneId)) {
+				requestResponsePool[zoneId] (zoneId);
 			}
 		}
 
@@ -191,7 +198,7 @@ namespace TapsellPlusSDK {
 					// }
 				}
 			} else {
-				if (errorPool.ContainsKey (zone)) {
+				if (requestErrorPool.ContainsKey (zone)) {
 					// TapsellError error = new TapsellError();
 					// error.zoneId = zone;
 					// error.error = "Invalid Result";
@@ -204,8 +211,8 @@ namespace TapsellPlusSDK {
 		}
 
 		public static void onRequestError (TapsellError error) {
-			if (errorPool.ContainsKey (error.zoneId)) {
-				errorPool[error.zoneId] (error);
+			if (requestErrorPool.ContainsKey (error.zoneId)) {
+				requestErrorPool[error.zoneId] (error);
 			}
 		}
 
@@ -213,7 +220,8 @@ namespace TapsellPlusSDK {
 			string zoneId,
 			Action<string> onShowAd,
 			Action<string> onCloseAd,
-			Action<string> onReward) {
+			Action<string> onReward,
+			Action<TapsellError> onError) {
 				
 			#if UNITY_ANDROID && !UNITY_EDITOR
 			if (openAdPool.ContainsKey (zoneId)) {
@@ -228,9 +236,14 @@ namespace TapsellPlusSDK {
 				rewardPool.Remove (zoneId);
 			}
 
+			if (errorPool.ContainsKey (zoneId)) {
+				errorPool.Remove (zoneId);
+			}
+
 			openAdPool.Add (zoneId, onShowAd);
 			closeAdPool.Add (zoneId, onCloseAd);
 			rewardPool.Add (zoneId, onReward);
+			errorPool.Add (zoneId, onError);
 
 			tapsellPlus.CallStatic ("showAd", zoneId);
 			#endif
@@ -254,9 +267,35 @@ namespace TapsellPlusSDK {
 			}
 		}
 
-		public static void showBannerAd (string zoneId, int bannerType, int horizontalGravity, int verticalGravity) {
+		public static void onError (TapsellError error) {
+			if (errorPool.ContainsKey (error.zoneId)) {
+				errorPool[error.zoneId] (error);
+			}
+		}
+
+		public static void showBannerAd (
+			string zoneId, int bannerType, int horizontalGravity, int verticalGravity, 
+				Action<string> onRequestResponse, Action<TapsellError> onRequestError) {
+
 			#if UNITY_ANDROID && !UNITY_EDITOR
+			if (requestResponsePool.ContainsKey (zoneId)) {
+				requestResponsePool.Remove (zoneId);
+			}
+
+			if (requestErrorPool.ContainsKey (zoneId)) {
+				requestErrorPool.Remove (zoneId);
+			}
+
+			requestResponsePool.Add (zoneId, onRequestResponse);
+			requestErrorPool.Add (zoneId, onRequestError);
+
 			tapsellPlus.CallStatic ("showBannerAd", zoneId, bannerType, horizontalGravity, verticalGravity);
+			#endif
+		}
+
+		public static void hideBanner () {
+			#if UNITY_ANDROID && !UNITY_EDITOR
+			tapsellPlus.CallStatic ("hideBanner");
 			#endif
 		}
 

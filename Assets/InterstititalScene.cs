@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class InterstititalScene : MonoBehaviour {
 
-	private readonly string ZONE_ID = "5bfc08d06ac0bb0001b7df7d";
+	private readonly string ZONE_ID = "5c71254ba345580001f15275";
 
 	public void Request () {
 		TapsellPlus.requestInterstitial (ZONE_ID,
@@ -14,7 +14,7 @@ public class InterstititalScene : MonoBehaviour {
 				Debug.Log ("on response" + zoneId);
 			},
 			(TapsellError error) => {
-				Debug.Log ("Error " + error.zoneId);
+				Debug.Log ("Error " + error.message);
 			}
 		);
 	}
@@ -30,6 +30,9 @@ public class InterstititalScene : MonoBehaviour {
 			},
 			(string zoneId) => {
 				Debug.Log ("onReward " + zoneId);
+			},
+			(TapsellError error) => {
+				Debug.Log ("onError " + error.message);
 			});
 	}
 }

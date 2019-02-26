@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RewardedScene : MonoBehaviour {
 
-	private readonly string ZONE_ID = "5b9e3885e82f6f000153de3c";
+	private readonly string ZONE_ID = "5c706876a345580001d40822";
 
 	public void Request () {
 		TapsellPlus.requestRewardedVideo (ZONE_ID,
@@ -14,7 +14,7 @@ public class RewardedScene : MonoBehaviour {
 				Debug.Log ("on response " + zoneId);
 			},
 			(TapsellError error) => {
-				Debug.Log ("Error " + error.zoneId);
+				Debug.Log ("Error " + error.message);
 			}
 		);
 	}
@@ -30,6 +30,10 @@ public class RewardedScene : MonoBehaviour {
 			},
 			(string zoneId) => {
 				Debug.Log ("onReward " + zoneId);
-			});
+			},
+			(TapsellError error) => {
+				Debug.Log ("onError " + error.message);
+			}
+		);
 	}
 }

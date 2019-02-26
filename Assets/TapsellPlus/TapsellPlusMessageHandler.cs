@@ -33,8 +33,15 @@ public class TapsellPlusMessageHandler : MonoBehaviour {
 		TapsellPlus.onCloseAd (zoneId);
 	}
 
-	public void onReward (String zoneId) {
+	public void notifyReward (String zoneId) {
 		Debug.Log ("notifyReward:" + zoneId);
 		TapsellPlus.onReward (zoneId);
+	}
+
+	public void notifyError (String body) {
+		TapsellError error = new TapsellError ();
+		error = JsonUtility.FromJson<TapsellError> (body);
+		Debug.Log ("notifyError:" + error.zoneId);
+		TapsellPlus.onError (error);
 	}
 }
