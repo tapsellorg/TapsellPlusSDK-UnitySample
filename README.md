@@ -138,6 +138,12 @@ TapsellPlus.showBannerAd (ZONE_ID, BannerType.BANNER_300x250, Gravity.BOTTOM, Gr
   });
 ```
 
+<div dir="rtl">با این کد میتوانید تبلیغ بنر استاندارد را مخفی کنید</div>
+
+```cs
+TapsellPlus.hideBanner ();
+```
+
 ## <div dir="rtl">آموزش تبلیغات همنما بنری</div>
 
 <div dir="rtl">مطابق کد زیر درخواست تبلیغ دهید</div>
