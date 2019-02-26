@@ -89,7 +89,7 @@ public void Show () {
 }
 ```
 
-## <div dir="rtl">آموزش تبلیغات بینابینی</div>
+## <div dir="rtl">آموزش تبلیغات آنی</div>
 
 <div dir="rtl">مطابق تبلیغات جایزه‌ای پیش برید فقط زمان درخواست تبلیغ از متد TapsellPlus.requestInterstitial استفاده کنید</div>
 
