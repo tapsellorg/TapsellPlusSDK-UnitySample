@@ -31,7 +31,25 @@ dependencies {
 }
 ```
 
-<div dir="rtl">خطوط زیر را در بخش android فایل mainTemplate.gradle اضافه کنید.</div>
+<div dir="rtl">هر یک از خطوط زیر که در بخش allprojects -> repositories فایل mainTemplate.gradle وجود ندارد اضافه کنید.</div>
+
+```
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        flatDir {
+            dirs 'libs'
+        }
+
+        maven {
+            url 'https://dl.bintray.com/tapsellorg/maven'
+        }
+    }
+}
+```
+
+<div dir="rtl">خطوط زیر را در بخش android فایل mainTemplate.gradle در صورتی که وجود ندارد اضافه کنید.</div>
 
 ```gradle
 android {
