@@ -78,7 +78,7 @@ void Start () {
 
 Where `TAPSELL_KEY` is the app-key copied from your tapsell dashboard.
 
-## Implementing Rewarded Video Ads
+### Implementing Rewarded Video Ads
 
 First of all, you must create a new rewarded video ad-zone in your application dashboard and use the generated `zoneId` to show rewarded video ads.
 
@@ -118,13 +118,13 @@ public void Show () {
 }
 ```
 
-## Implementing Interstitial Ads
+### Implementing Interstitial Ads
 
 To implement interstitial ads in your application, follow the procedure describe in implementing rewarded ads but use `TapsellPlus.requestInterstitial` method instead of `requestRewardedVideo` method.
 The `zoneId` used in this method must have interstitial type in your dashboard.
 
 
-## Implementing Standard Banner Ads
+### Implementing Standard Banner Ads
 
 To show a standard banner, use the `showBannerAd` method from `TapsellPlus` class as shown in the following code block.
 
@@ -171,7 +171,7 @@ To hide the banner, use `hideBanner` function:
 TapsellPlus.hideBanner ();
 ```
 
-## Implementing Native Banner Ads
+### Implementing Native Banner Ads
 
 You need to create a native banner ad-zone in your dashboard to use the generated `zoneId` for showing native banner ads.
 
