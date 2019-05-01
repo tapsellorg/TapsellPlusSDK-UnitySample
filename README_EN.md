@@ -16,12 +16,12 @@ Add the following lines to dependencies of `mainTemplate.gradle` file in `Assets
 ```gradle
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
-    
+
   implementation 'com.google.code.gson:gson:2.8.5'
   implementation 'com.squareup.retrofit2:retrofit:2.5.0'
   implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
   implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
-  implementation 'ir.tapsell.sdk:tapsell-sdk-android:4.1.5'
+  implementation 'ir.tapsell.sdk:tapsell-sdk-android:4.2.4'
 
   implementation 'com.unity3d.ads:unity-ads:3.0.0'
   implementation 'com.google.android.gms:play-services-ads:17.1.3'
@@ -151,7 +151,7 @@ TapsellPlus.showBannerAd (ZONE_ID, BANNER_TYPE, VERTICAL_GRAVITY, HORIZONTAL_GRA
 |  BANNER_728x90 |  728x90 |
 
 
-`VERTICAL_GrAVITY` and `HORIZONTAL_GRAVITY` indicate the vertical and horizontal position of banner on the screen. You can use `Gravity.TOP`, `Gravity.BOTTOM` or `Gravity.CENTER` for vertical gravity and `Gravity.LEFT`, `Gravity.RIGHT` or `Gravity.CENTER` for horizontal gravity. 
+`VERTICAL_GrAVITY` and `HORIZONTAL_GRAVITY` indicate the vertical and horizontal position of banner on the screen. You can use `Gravity.TOP`, `Gravity.BOTTOM` or `Gravity.CENTER` for vertical gravity and `Gravity.LEFT`, `Gravity.RIGHT` or `Gravity.CENTER` for horizontal gravity.
 
 For example, if you want to show a banner at the bottom of the screen with 320x50 size, you can use the following code:
 
