@@ -6,8 +6,8 @@
 
 ### <div dir="rtl">اضافه کردن کتابخانه به پروژه</div>
 
-<div dir="rtl">نسخه 0.1.3.0</div>
-<div dir="rtl">ابتدا <a href="https://storage.backtory.com/tapsell-sdk-private/plus-unity/tapsellplus-v0.1.3.0.unitypackage">unity package</a> تپسل را دانلود کنید و به پروژه اضافه کنید.</div>
+<div dir="rtl">نسخه 0.2.2.0</div>
+<div dir="rtl">ابتدا <a href="https://storage.backtory.com/tapsell-sdk-private/plus-unity/tapsellplus-v0.2.2.0.unitypackage">unity package</a> تپسل را دانلود کنید و به پروژه اضافه کنید.</div>
 
 
 <div dir="rtl">از player settings قسمت publishing settings تیک custom gradle template رو بزارید.</div>
