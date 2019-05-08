@@ -21,7 +21,7 @@ dependencies {
   implementation 'com.squareup.retrofit2:retrofit:2.5.0'
   implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
   implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
-  implementation 'ir.tapsell.sdk:tapsell-sdk-android:4.2.4'
+  implementation 'ir.tapsell.sdk:tapsell-sdk-android:4.2.6'
 
   implementation 'com.unity3d.ads:unity-ads:3.0.0'
   implementation 'com.google.android.gms:play-services-ads:17.1.3'
