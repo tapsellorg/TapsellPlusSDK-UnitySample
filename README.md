@@ -6,8 +6,8 @@
 
 ### <div dir="rtl">اضافه کردن کتابخانه به پروژه</div>
 
-<div dir="rtl">نسخه 0.2.5.0</div>
-<div dir="rtl">ابتدا <a href="https://storage.backtory.com/tapsell-sdk-private/plus-unity/tapsellplus-v0.2.5.0.unitypackage">unity package</a> تپسل را دانلود کنید و به پروژه اضافه کنید.</div>
+<div dir="rtl">نسخه 0.2.6.0</div>
+<div dir="rtl">ابتدا <a href="https://storage.backtory.com/tapsell-sdk-private/plus-unity/tapsellplus-v0.2.6.0.unitypackage">unity package</a> تپسل را دانلود کنید و به پروژه اضافه کنید.</div>
 
 
 <div dir="rtl">از player settings قسمت publishing settings تیک custom gradle template رو بزارید.</div>
@@ -24,7 +24,7 @@ dependencies {
   implementation 'ir.tapsell.sdk:tapsell-sdk-android:4.2.7'
 
   implementation 'com.unity3d.ads:unity-ads:3.0.0'
-  implementation 'com.google.android.gms:play-services-ads:17.1.3'
+  implementation 'com.google.android.gms:play-services-ads:17.2.0'
   implementation 'com.google.android.gms:play-services-basement:16.2.0'
   implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
   implementation 'com.google.android.gms:play-services-location:16.0.0'

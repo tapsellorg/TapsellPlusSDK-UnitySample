@@ -6,9 +6,9 @@ Adding TapsellPlus to your Unity Project
 
 ### Import TapsellPlus SDK
 
-Version 0.2.5.0
+Version 0.2.6.0
 
-First of all, download [TapsellPlus Unity Package](https://storage.backtory.com/tapsell-sdk-private/plus-unity/tapsellplus-v0.2.5.0.unitypackage) and add this to your project.
+First of all, download [TapsellPlus Unity Package](https://storage.backtory.com/tapsell-sdk-private/plus-unity/tapsellplus-v0.2.6.0.unitypackage) and add this to your project.
 
 In `Player Settings` of your project, select `Custom Gradle Template` from `Publishing Settings`.
 Add the following lines to dependencies of `mainTemplate.gradle` file in `Assets/Plugins/Android` directory of your project.
@@ -24,7 +24,7 @@ dependencies {
   implementation 'ir.tapsell.sdk:tapsell-sdk-android:4.2.7'
 
   implementation 'com.unity3d.ads:unity-ads:3.0.0'
-  implementation 'com.google.android.gms:play-services-ads:17.1.3'
+  implementation 'com.google.android.gms:play-services-ads:17.2.0'
   implementation 'com.google.android.gms:play-services-basement:16.2.0'
   implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
   implementation 'com.google.android.gms:play-services-location:16.0.0'
