@@ -18,10 +18,6 @@ allprojects {
         flatDir {
             dirs 'libs'
         }
-
-        maven {
-            url 'https://dl.bintray.com/tapsellorg/maven'
-        }
     }
 }
 
@@ -30,19 +26,7 @@ apply plugin: 'com.android.application'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
-
-    implementation 'ir.tapsell.sdk:tapsell-sdk-android:4.2.7'
-    implementation 'com.unity3d.ads:unity-ads:3.0.0'
-
-    implementation 'com.google.android.gms:play-services-ads:17.2.0'
-    implementation 'com.google.android.gms:play-services-basement:16.2.0'
-    implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
-    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    **DEPS**
 }
 
 android {
