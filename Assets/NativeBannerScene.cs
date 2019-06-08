@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class NativeBannerScene : MonoBehaviour {
 
-	private readonly string ZONE_ID = "5c712589a345580001f15276";
+	private readonly string ZONE_ID = "5cfaa9deaede570001d5553a";
 	public static TapsellNativeBannerAd nativeAd = null;
 
 	public void Request () {

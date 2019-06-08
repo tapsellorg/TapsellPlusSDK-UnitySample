@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class FirstScene : MonoBehaviour {
 
-  private readonly string TAPSELL_PLUS_KEY = "blmcefpigdhinkgrlaclkblspsmcdtotmhjploijcgehcdimkqitiqrakpfmftebooctee";
+  private readonly string TAPSELL_PLUS_KEY = "alsoatsrtrotpqacegkehkaiieckldhrgsbspqtgqnbrrfccrtbdomgjtahflchkqtqosa";
 
   void Start () {
     TapsellPlus.initialize (TAPSELL_PLUS_KEY);

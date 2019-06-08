@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StandardBannerScene : MonoBehaviour {
 
-  private readonly string ZONE_ID = "5c7125a3c16a660001bd3c67";
+  private readonly string ZONE_ID = "5cfaaa30e8d17f0001ffb294";
 
   public void Show () {
     TapsellPlus.showBannerAd (ZONE_ID, BannerType.BANNER_320x50, Gravity.BOTTOM, Gravity.CENTER,
