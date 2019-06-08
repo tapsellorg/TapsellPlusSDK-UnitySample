@@ -7,7 +7,7 @@
 ### <div dir="rtl">اضافه کردن کتابخانه به پروژه</div>
 
 <div dir="rtl">نسخه 1.0</div>
-<div dir="rtl">ابتدا <a href="https://github.com">unity package</a> تپسل پلاس را دانلود و مطابق توضیحات زیر به پروژه اضافه کنید. سپس هر adNetwork که تپسل پشتیبانی میکند و مایل هستید را مطابق توضیحات به پروژه اضافه کنید. در انتها با روش‌های تست مطمعن شوید که adNetwork مورد نظر به درستی کار میکند.<br /> <br /></div>
+<div dir="rtl">ابتدا <a href="https://github.com/tapsellorg/TapsellPlusSDK-UnitySample/releases/download/v1.0/TapsellPlusUnity-v1.0.unitypackage">unity package</a> تپسل پلاس را دانلود و مطابق توضیحات زیر به پروژه اضافه کنید. سپس هر adNetwork که تپسل پشتیبانی میکند و مایل هستید را مطابق توضیحات به پروژه اضافه کنید. در انتها با روش‌های تست مطمعن شوید که adNetwork مورد نظر به درستی کار میکند.<br /> <br /></div>
 
 
 <div dir="rtl">از player settings قسمت publishing settings تیک custom gradle template رو بزارید.</div>
