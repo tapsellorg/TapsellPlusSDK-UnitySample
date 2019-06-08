@@ -106,6 +106,12 @@ namespace TapsellPlusSDK {
 			#endif
 		}
 
+		public static void addFacebookTestDevice (string hash) {			
+			#if UNITY_ANDROID && !UNITY_EDITOR
+			tapsellPlus.CallStatic ("addFacebookTestDevice", hash);
+			#endif
+		}
+
 		private static void setJavaObject () {
 			#if UNITY_ANDROID && !UNITY_EDITOR
 			tapsellPlus = new AndroidJavaClass ("ir.tapsell.plus.TapsellPlusUnity");
@@ -185,28 +191,25 @@ namespace TapsellPlusSDK {
 
 		public static void onNativeRequestResponse (TapsellNativeBannerAd result) {
 			#if UNITY_ANDROID && !UNITY_EDITOR
-			string zone = result.zoneId;
+			string zoneId = result.zoneId;
 			if (result != null) {
 				if (mMonoBehaviour != null && mMonoBehaviour.isActiveAndEnabled) {
 					mMonoBehaviour.StartCoroutine (loadNativeBannerAdImages (result));
 				} else {
-					// if (errorPool.ContainsKey (zoneId)) {
-						// TapsellError error = new TapsellError();
-						// error.zoneId = zone;
-						// error.error = "Invalid MonoBehaviour Object";
-						// requestNativeBannerErrorPool [zone](error);
-						// errorPool[zoneId] (zoneId);
-					// }
+					if (requestErrorPool.ContainsKey (zoneId)) {
+						TapsellError error = new TapsellError();
+						error.zoneId = zoneId;
+						error.message = "Invalid MonoBehaviour Object";
+						requestErrorPool[zoneId] (error);
+					}
 				}
 			} else {
-				if (requestErrorPool.ContainsKey (zone)) {
-					// TapsellError error = new TapsellError();
-					// error.zoneId = zone;
-					// error.error = "Invalid Result";
-					// requestNativeBannerErrorPool [zone](error);
+				if (requestErrorPool.ContainsKey (zoneId)) {
+					TapsellError error = new TapsellError();
+					error.zoneId = zoneId;
+					error.message = "Invalid Result";
+					requestErrorPool [zoneId](error);
 				}
-
-				// errorPool[zoneId] (zoneId);
 			}
 			#endif
 		}
@@ -326,6 +329,7 @@ namespace TapsellPlusSDK {
 					result.portraitBannerImage = ((DownloadHandlerTexture) wwwPortrait.downloadHandler).texture;
 				}
 			}
+
 			if (result.landscapeStaticImageUrl != null && !result.landscapeStaticImageUrl.Equals ("")) {
 				UnityWebRequest wwwLandscape = UnityWebRequestTexture.GetTexture (result.landscapeStaticImageUrl);
 				yield return wwwLandscape.SendWebRequest ();
