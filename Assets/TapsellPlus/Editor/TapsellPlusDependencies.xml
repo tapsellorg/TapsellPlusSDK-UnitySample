@@ -8,8 +8,19 @@
     </androidPackage>
     <androidPackage spec="com.squareup.okhttp3:logging-interceptor:3.12.1">
     </androidPackage>
+
     <androidPackage spec="ir.tapsell.sdk:tapsell-sdk-android:4.2.7">
     </androidPackage>
+
+    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:0.2.6">
+    </androidPackage>
+
+    <androidPackage spec="ir.tapsell.sdk:chartboost-sdk-android:7.3.1">
+    </androidPackage>
+
+    <androidPackage spec="com.unity3d.ads:unity-ads:3.0.0">
+    </androidPackage>
+
     <androidPackage spec="com.google.android.gms:play-services-basement:16.2.0">
     </androidPackage>
     <androidPackage spec="com.google.android.gms:play-services-ads-identifier:16.0.0">
@@ -18,8 +29,7 @@
     </androidPackage>
     <androidPackage spec="com.google.android.gms:play-services-ads:17.2.1">
     </androidPackage>
-    <androidPackage spec="com.unity3d.ads:unity-ads:3.0.0">
-    </androidPackage>
+
     <repositories>
       <repository>https://dl.bintray.com/tapsellorg/maven</repository>
     </repositories>
