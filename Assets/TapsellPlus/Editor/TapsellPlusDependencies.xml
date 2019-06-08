@@ -1,8 +1,5 @@
 <dependencies>
   <androidPackages>
-    <repositories>
-      <repository>https://dl.bintray.com/tapsellorg/maven</repository>
-    </repositories>
     <androidPackage spec="com.google.code.gson:gson:2.8.5">
     </androidPackage>
     <androidPackage spec="com.squareup.retrofit2:retrofit:2.5.0">
@@ -23,6 +20,9 @@
     </androidPackage>
     <androidPackage spec="com.unity3d.ads:unity-ads:3.0.0">
     </androidPackage>
+    <repositories>
+      <repository>https://dl.bintray.com/tapsellorg/maven</repository>
+    </repositories>
   </androidPackages>
 </dependencies>
 

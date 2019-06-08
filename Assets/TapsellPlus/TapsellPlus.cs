@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace TapsellPlusSDK {
 	
@@ -307,25 +308,31 @@ namespace TapsellPlusSDK {
 
 		static IEnumerator loadNativeBannerAdImages (TapsellNativeBannerAd result) {
 			if (result.iconUrl != null && !result.iconUrl.Equals ("")) {
-				WWW wwwIcon = new WWW (result.iconUrl);
-				yield return wwwIcon;
-				if (wwwIcon.texture != null) {
-					result.iconImage = wwwIcon.texture;
+				UnityWebRequest wwwIcon = UnityWebRequestTexture.GetTexture (result.iconUrl);
+				yield return wwwIcon.SendWebRequest ();
+				if (wwwIcon.isNetworkError || wwwIcon.isHttpError) {
+					Debug.Log (wwwIcon.error);
+				} else {
+					result.iconImage = ((DownloadHandlerTexture) wwwIcon.downloadHandler).texture;
 				}
 			}
 
 			if (result.portraitStaticImageUrl != null && !result.portraitStaticImageUrl.Equals ("")) {
-				WWW wwwPortrait = new WWW (result.portraitStaticImageUrl);
-				yield return wwwPortrait;
-				if (wwwPortrait.texture != null) {
-					result.portraitBannerImage = wwwPortrait.texture;
+				UnityWebRequest wwwPortrait = UnityWebRequestTexture.GetTexture (result.portraitStaticImageUrl);
+				yield return wwwPortrait.SendWebRequest ();
+				if (wwwPortrait.isNetworkError || wwwPortrait.isHttpError) {
+					Debug.Log (wwwPortrait.error);
+				} else {
+					result.portraitBannerImage = ((DownloadHandlerTexture) wwwPortrait.downloadHandler).texture;
 				}
 			}
 			if (result.landscapeStaticImageUrl != null && !result.landscapeStaticImageUrl.Equals ("")) {
-				WWW wwwLandscape = new WWW (result.landscapeStaticImageUrl);
-				yield return wwwLandscape;
-				if (wwwLandscape.texture != null) {
-					result.landscapeBannerImage = wwwLandscape.texture;
+				UnityWebRequest wwwLandscape = UnityWebRequestTexture.GetTexture (result.landscapeStaticImageUrl);
+				yield return wwwLandscape.SendWebRequest ();
+				if (wwwLandscape.isNetworkError || wwwLandscape.isHttpError) {
+					Debug.Log (wwwLandscape.error);
+				} else {
+					result.landscapeBannerImage = ((DownloadHandlerTexture) wwwLandscape.downloadHandler).texture;
 				}
 			}
 

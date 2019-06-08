@@ -1,0 +1,15 @@
+<dependencies>
+  <packages>
+    <package>com.google.android.gms:play-services-ads:17.2.1</package>
+    <package>com.google.android.gms:play-services-ads-identifier:16.0.0</package>
+    <package>com.google.android.gms:play-services-basement:16.2.0</package>
+    <package>com.google.android.gms:play-services-location:16.0.0</package>
+    <package>com.google.code.gson:gson:2.8.5</package>
+    <package>com.squareup.okhttp3:logging-interceptor:3.12.1</package>
+    <package>com.squareup.retrofit2:converter-gson:2.5.0</package>
+    <package>com.squareup.retrofit2:retrofit:2.5.0</package>
+    <package>com.unity3d.ads:unity-ads:3.0.0</package>
+    <package>ir.tapsell.sdk:tapsell-sdk-android:4.2.7</package>
+  </packages>
+  <files />
+</dependencies>
