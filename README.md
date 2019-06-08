@@ -7,33 +7,27 @@
 ### <div dir="rtl">اضافه کردن کتابخانه به پروژه</div>
 
 <div dir="rtl">نسخه 0.2.6.0</div>
-<div dir="rtl">ابتدا <a href="https://storage.backtory.com/tapsell-sdk-private/plus-unity/tapsellplus-v0.2.6.0.unitypackage">unity package</a> تپسل را دانلود کنید و به پروژه اضافه کنید.</div>
+<div dir="rtl">ابتدا <a href="https://storage.backtory.com/tapsell-sdk-private/plus-unity/tapsellplus-v0.2.6.0.unitypackage">unity package</a> تپسل را دانلود و به پروژه اضافه کنید. سپس هر adNetwork که تپسل پشتیبانی میکند و مایل هستید را مطابق توضیحات به پروژه اضافه کنید. در انتها با روش‌های تست مطمعن شوید که adBetwork مورد نظر به درستی کار میکند.<br /> <br /></div>
 
 
 <div dir="rtl">از player settings قسمت publishing settings تیک custom gradle template رو بزارید.</div>
-<div dir="rtl">خطوط زیر را در بخش dependencies فایل mainTemplate.gradle در مسیر Assets/Plugins/Android اضافه کنید.</div>
+<div dir="rtl">خطوط زیر را در بخش dependencies فایل mainTemplate.gradle در مسیر Assets/Plugins/Android اضافه کنید. توجه داشته باشید که ۲ قسمت dependencies وجود دارد، این تغییرات باید در قسمت دوم انجام شود.</div>
 
 ```gradle
+...
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-  implementation 'com.google.code.gson:gson:2.8.5'
-  implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-  implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-  implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
-  implementation 'ir.tapsell.sdk:tapsell-sdk-android:4.2.7'
-
-  implementation 'com.unity3d.ads:unity-ads:3.0.0'
-  implementation 'com.google.android.gms:play-services-ads:17.2.0'
-  implementation 'com.google.android.gms:play-services-basement:16.2.0'
-  implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
-  implementation 'com.google.android.gms:play-services-location:16.0.0'
-}
+  implementation 'ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.0'
+**DEPS**}
+...
 ```
+
+<div dir="rtl">در نسخه‌های قدیمی یونیتی ممکن هست implementation شناخته نشود در این صورت از compile استفاده کنید.<br /><br /></div>
 
 <div dir="rtl">هر یک از خطوط زیر که در بخش allprojects -> repositories فایل mainTemplate.gradle وجود ندارد اضافه کنید.</div>
 
 ```
+...
 allprojects {
     repositories {
         google()
@@ -47,6 +41,7 @@ allprojects {
         }
     }
 }
+...
 ```
 
 <div dir="rtl">خطوط زیر را در بخش android فایل mainTemplate.gradle در صورتی که وجود ندارد اضافه کنید.</div>
@@ -60,9 +55,45 @@ android {
 }
 ```
 
-<div dir="rtl">تنظیمات پروگوارد را از  <a href="https://github.com/tapsellorg/TapsellPlusSDK-AndroidSample/blob/master/app/proguard-rules.pro">این فایل</a> دریافت کنید</div>
+## <div dir="rtl">اضافه کردن سایر Ad Network ها</div>
+
+<div dir="rtl">در قسمت dependencies فایل mainTemplate.gradle این موارد را اضافه کنید. برای کسب اطلاعات بیشتر در مورد هر ad network میتوانید با همکاران ما در تیم رسانه صحبت کنید.</div>
+
+```gradle
+...
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  ...
+  //for adMob
+  implementation 'com.google.android.gms:play-services-ads:17.2.1'
+  implementation 'com.google.android.gms:play-services-basement:16.2.0'
+  implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
+  implementation 'com.google.android.gms:play-services-location:16.0.0' 
+  
+  //for unityAds
+  implementation 'com.unity3d.ads:unity-ads:3.0.0'
+
+  //for chartboost
+  implementation 'ir.tapsell.sdk:chartboost-sdk-android:7.3.1'
+
+  //for facebook
+  implementation 'com.facebook.android:audience-network-sdk:5.3.0'
+**DEPS**}
+...
+```
+
+## <div dir="rtl">تنظیمات proguard</div>
+
+<div dir="rtl">تنظیمات پروگوارد را از  <a href="https://github.com/tapsellorg/TapsellPlusSDK-AndroidSample/blob/master/app/proguard-rules.pro">این فایل</a> دریافت کنید.</div>
+
+
+
+## <div dir="rtl">راه اندازی تپسل پلاس</div>
+
+<div dir="rtl">کلید تپسل را از <a href="https://dashboard.tapsell.ir/">پنل</a> دریافت کنید.</div>
 
 <div dir="rtl">تابع زیر را در یکی از اسکریپت‌های ابتدایی برنامه بزارید.</div>
+
 
 ```cs
 void Start () {
@@ -70,11 +101,11 @@ void Start () {
 }
 ```
 
-## <div dir="rtl">آموزش تبلیغات ویدیو جایزه‌ای</div>
+## <div dir="rtl">پیاده سازی تبلیغات ویدیو جایزه‌ای</div>
 
-<div dir="rtl">ابتدا از پنل یک تبلیغگاه (zone) ویدیو جایزه‌ای بسازید و zoneId رو زمان درخواست و نمایش تبلیغ استفاده کنید</div>
+<div dir="rtl">ابتدا از پنل یک تبلیغگاه (zone) ویدیو جایزه‌ای بسازید و zoneId رو زمان درخواست و نمایش تبلیغ استفاده کنید.</div>
 
-<div dir="rtl">مطابق کد زیر درخواست تبلیغ دهید</div>
+<div dir="rtl">سپس مطابق کد زیر درخواست تبلیغ دهید.</div>
 
 ```cs
 public void Request () {
@@ -89,7 +120,7 @@ public void Request () {
 }
 ```
 
-<div dir="rtl">بعد از اجرای متد response تبلیغ آماده نمایش است و میتوانید مطابق روش زیر نمایش دهید</div>
+<div dir="rtl">بعد از اجرای متد response تبلیغ آماده نمایش است و میتوانید مطابق روش زیر نمایش دهید.</div>
 
 ```cs
 public void Show () {
@@ -110,14 +141,14 @@ public void Show () {
 }
 ```
 
-## <div dir="rtl">آموزش تبلیغات آنی</div>
+## <div dir="rtl">پیاده سازی تبلیغات آنی</div>
 
-<div dir="rtl">مطابق تبلیغات جایزه‌ای پیش برید فقط زمان درخواست تبلیغ از متد TapsellPlus.requestInterstitial استفاده کنید</div>
+<div dir="rtl">مطابق تبلیغات جایزه‌ای پیش برید فقط زمان درخواست تبلیغ از متد TapsellPlus.requestInterstitial استفاده کنید.</div>
 
 
 ## <div dir="rtl">آموزش تبلیغات بنر استاندارد</div>
 
-<div dir="rtl">مطابق کد زیر میتونید بنر استاندارد نمایش دهید</div>
+<div dir="rtl">مطابق کد زیر میتونید بنر استاندارد نمایش دهید.</div>
 
 ```cs
 TapsellPlus.showBannerAd (ZONE_ID, BANNER_TYPE, VERTICAL_GRAVITY, HORIZONTAL_GRAVITY,
@@ -129,7 +160,7 @@ TapsellPlus.showBannerAd (ZONE_ID, BANNER_TYPE, VERTICAL_GRAVITY, HORIZONTAL_GRA
   });
 ```
 
-<div dir="rtl">BANNER_TYPE سایز نمایش بنر هست و میتواند مقادیر زیر باشد</div>
+<div dir="rtl">BANNER_TYPE سایز نمایش بنر هست و میتواند مقادیر زیر باشد.</div>
 
 |     keyword    |   size  |
 |:--------------:|:-------:|
@@ -141,13 +172,13 @@ TapsellPlus.showBannerAd (ZONE_ID, BANNER_TYPE, VERTICAL_GRAVITY, HORIZONTAL_GRA
 |  BANNER_728x90 |  728x90 |
 
 
-<div dir="rtl">VERTICAL_GRAVITY و HORIZONTAL_GRAVITY موقعیت قرار گیری بنر در صفحه هست و میتواند مقادیر زیر باشد</div>
+<div dir="rtl">VERTICAL_GRAVITY و HORIZONTAL_GRAVITY موقعیت قرار گیری بنر در صفحه هست و میتواند مقادیر زیر باشد.</div>
 
 ```
 Gravity.TOP - Gravity.BOTTOM - Gravity.LEFT - Gravity.RIGHT - Gravity.CENTER
 ```
 
-<div dir="rtl">به عنوان مثال میتونید به این شکل درخواست تبلیغ دهید</div>
+<div dir="rtl">به عنوان مثال میتوانید به این شکل درخواست تبلیغ دهید.</div>
 
 ```cs
 TapsellPlus.showBannerAd (ZONE_ID, BannerType.BANNER_300x250, Gravity.BOTTOM, Gravity.CENTER,
@@ -159,22 +190,22 @@ TapsellPlus.showBannerAd (ZONE_ID, BannerType.BANNER_300x250, Gravity.BOTTOM, Gr
   });
 ```
 
-<div dir="rtl">با این کد میتوانید تبلیغ بنر استاندارد را مخفی کنید</div>
+<div dir="rtl">با این کد میتوانید تبلیغ بنر استاندارد را مخفی کنید.</div>
 
 ```cs
 TapsellPlus.hideBanner ();
 ```
 
-## <div dir="rtl">آموزش تبلیغات همنما بنری</div>
+## <div dir="rtl">پیاده سازی تبلیغات همنما بنری</div>
 
-<div dir="rtl">مطابق کد زیر درخواست تبلیغ دهید</div>
+<div dir="rtl">مطابق کد زیر درخواست تبلیغ دهید.</div>
 
 ```cs
 public void Request () {
   TapsellPlus.requestNativeBanner (this, ZONE_ID,
     (TapsellNativeBannerAd result) => {
       Debug.Log ("on response");
-      //show ad
+      //showing ad
     },
     (TapsellError error) => {
       Debug.Log ("Error " + error.message);
@@ -183,7 +214,7 @@ public void Request () {
 }
 ```
 
-<div dir="rtl">متغیر برگردانده شده در on response محتویات تبلیغ هست و برای نمایش تبلیغ باید مطابق جدول زیر ازش استفاده کنید</div>
+<div dir="rtl">متغیر برگردانده شده در on response محتویات تبلیغ هست و برای نمایش تبلیغ باید مطابق جدول زیر ازش استفاده کنید.</div>
 
 |           function          |     usage     |
 |:---------------------------:|:-------------:|
@@ -194,10 +225,14 @@ public void Request () {
 |  getPortraitBannerImage  () |  تصویر عمودی  |
 |     getCallToAction  (),    | متن دکمه کلیک |
 
-<div dir="rtl">برای باز کردن تبلیغ زمان کلیک کاربر میتونید از این متد استفاده کنید</div>
+<div dir="rtl">برای باز کردن تبلیغ زمان کلیک کاربر میتوانید از این متد استفاده کنید.</div>
 
 ```cs
 nativeAd.clicked ();
 ```
 
-<div dir="rtl">برای دیدن یک نمونه پیاده سازی شده میتونید همین پروژه در گیت‌هاب را بررسی کنید</div>
+<div dir="rtl">برای دیدن یک نمونه پیاده سازی شده میتوانید همین پروژه در گیت‌هاب را بررسی کنید.</div>
+
+
+
+## <div dir="rtl">تست Ad Network ها</div>
