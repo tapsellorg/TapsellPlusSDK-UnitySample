@@ -119,7 +119,7 @@ dependencies {
       <repository>https://dl.bintray.com/tapsellorg/maven</repository>
     </repositories>
 
-    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:0.2.6"/>
+    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.0"/>
     ......
 
     <!--for admob-->
