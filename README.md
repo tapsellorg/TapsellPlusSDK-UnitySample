@@ -24,7 +24,7 @@ android {
 ```
 
 #### <div dir="rtl">برای اضافه کردن کتابخانه‌های مورد نیاز ۲ روش وجود دارد از هرکدام که مایل هستید استفاده کنید.</div>
-#### <div dir="rtl">روش اول اتسفاده از gradle</div>
+#### <div dir="rtl">روش اول استفاده از gradle</div>
 
 <div dir="rtl">خطوط زیر را در بخش dependencies فایل mainTemplate.gradle در مسیر Assets/Plugins/Android اضافه کنید. توجه داشته باشید که ۲ قسمت dependencies وجود دارد، این تغییرات باید در قسمت دوم انجام شود.</div>
 
@@ -61,7 +61,7 @@ allprojects {
 
 <div dir="rtl">هنگام import یونیتی‌پکیج تپسل پلاس تیک قسمت playServicesResolver و TapsellPlusDependencies.xml را بردارید.</div>
 
-#### <div dir="rtl">روش دوم اتسفاده از resolver</div>
+#### <div dir="rtl">روش دوم استفاده از resolver</div>
 
 <div dir="rtl">هنگام import کردن unityPackage تپسل پلاس تیک تمامی قسمت‌ها را بزارید.</div>
 <div dir="rtl">در صورتی که تنظیمات ریزالور بر روی حالت auto-resolution میباشد، لایبراری های تپسل پلاس به صورت خودکار اضافه میشود. در غیر اینصورت به صورت دستی Resolve را انجام دهید.</div>
@@ -80,7 +80,7 @@ Assets > Play Services Resolver > Android Resolver > Force Resolve
 
 ## <div dir="rtl">اضافه کردن سایر Ad Network ها</div>
 
-#### <div dir="rtl">روش اول اتسفاده از gradle</div>
+#### <div dir="rtl">روش اول استفاده از gradle</div>
 
 <div dir="rtl">در قسمت dependencies فایل mainTemplate.gradle این موارد را اضافه کنید. برای کسب اطلاعات بیشتر در مورد هر ad network میتوانید با همکاران ما در تیم رسانه صحبت کنید.</div>
 
@@ -107,7 +107,7 @@ dependencies {
 ...
 ```
 
-#### <div dir="rtl">روش دوم اتسفاده از resolver</div>
+#### <div dir="rtl">روش دوم استفاده از resolver</div>
 
 <div dir="rtl">خطوط مربوط به هر adNetwork که مایل هستید را به فایل  TapsellPlusDependencies.xml اضافه کنید.</div>
 
