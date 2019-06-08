@@ -236,3 +236,50 @@ nativeAd.clicked ();
 
 
 ## <div dir="rtl">تست Ad Network ها</div>
+
+<div dir="rtl">برای اطمینان از صحت عملکرد adNetwrok هایی که اضافه کردید از zoneId مربوط به هرکدام استفاده کنید. هر zoneId مربوط به یک adNetwork و یک نوع تبلیغ هست و تبلیغ حالت تست نمایش داده میشود.</div>
+
+<div dir="rtl">* توجه داشته باشید در حالت تست باید از appId تست استفاده کنید.</div>
+<div dir="rtl">* هنگام تست باید از ip خارج ایران (فیلتر شکن) استفاده کنید.</div>
+<div dir="rtl">* برای عملکرد صحیح حالت تست باید یکبار برنامه باز و بسته شود. همچنین در دومین درخواست، تبلیغ  adNetwork مورد نظر نمایش داده میشود.</div>
+<div dir="rtl">* برای تست facebook باید hash دستگاهی که بر روی آن تست انجام میشود طبق روش گفته شده به sdk داده شود.</div>
+<div dir="rtl">* تست را در حالت build release هم انجام دهید.</div>
+
+<div dir="rtl"><br /></div>
+
+<div dir="rtl">از این appId برای تست استفاده کنید.</div>
+
+```cs
+TapsellPlus.initialize("alsoatsrtrotpqacegkehkaiieckldhrgsbspqtgqnbrrfccrtbdomgjtahflchkqtqosa");
+```
+
+<div dir="rtl">برای هر ادنتورک و هر تبلیغ از zoneId های زیر برای درخواست و نمایش تبلیغ استفاده کنید. در حال حاضر فقط adType/adNetwork های زیر قابل استفاده هستند.</div>
+
+|        Ad Network      |              Ad Type              |ZoneId
+|:------------:|:----------------------------:|:----------------------------:|
+|     Tapsell     |     Rewarded Video    | 5cfaa802e8d17f0001ffb28e|
+|     Tapsell    |    Interstitial    |5cfaa942e8d17f0001ffb292|
+| Tapsell |  Native  |5cfaa9deaede570001d5553a|
+|  Tapsell | Standard |5cfaaa30e8d17f0001ffb294|
+|    Admob    |    Rewarded Video   |5cfaa8aee8d17f0001ffb28f|
+|    Admob    |     Interstitial     |5cfaa9b0e8d17f0001ffb293|
+|    Admob    |     Standard     |5cfaaa4ae8d17f0001ffb295|
+|    Unity Ads    |     Rewarded Video     |5cfaa8eae8d17f0001ffb291|
+|    Chartboost    |     Rewarded Video     |5cfaa8cee8d17f0001ffb290|
+|    Facebook    |     Rewarded Video     |5cfaa838aede570001d55538|
+|    Facebook    |     Interstitial     |5cfaa975aede570001d55539|
+
+
+<div dir="rtl">زمانی که از facebook استفاده میکنید متنی مشابه زیر در logcat پرینت میشود.</div>
+
+```
+When testing your app with Facebook's ad units you must specify the device hashed ID to ensure the delivery of test ads, add the following code before loading an ad: AdSettings.addTestDevice("YOUR_DEVICE_HASH");
+```
+
+
+<div dir="rtl">برای دیدن تبلیغات تستی فیسبوک مقدار hash دستگاه خود را از طریق متد زیر به کتابخانه تپسل بدهید.</div>
+
+```cs
+TapsellPlus.addFacebookTestDevice("YOUR_DEVICE_HASH");
+```
+
