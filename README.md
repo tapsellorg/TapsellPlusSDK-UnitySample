@@ -7,10 +7,25 @@
 ### <div dir="rtl">اضافه کردن کتابخانه به پروژه</div>
 
 <div dir="rtl">نسخه 0.2.6.0</div>
-<div dir="rtl">ابتدا <a href="https://storage.backtory.com/tapsell-sdk-private/plus-unity/tapsellplus-v0.2.6.0.unitypackage">unity package</a> تپسل را دانلود و به پروژه اضافه کنید. سپس هر adNetwork که تپسل پشتیبانی میکند و مایل هستید را مطابق توضیحات به پروژه اضافه کنید. در انتها با روش‌های تست مطمعن شوید که adBetwork مورد نظر به درستی کار میکند.<br /> <br /></div>
+<div dir="rtl">ابتدا <a href="https://storage.backtory.com/tapsell-sdk-private/plus-unity/tapsellplus-v0.2.6.0.unitypackage">unity package</a> تپسل پلاس را دانلود و مطابق توضیحات زیر به پروژه اضافه کنید. سپس هر adNetwork که تپسل پشتیبانی میکند و مایل هستید را مطابق توضیحات به پروژه اضافه کنید. در انتها با روش‌های تست مطمعن شوید که adNetwork مورد نظر به درستی کار میکند.<br /> <br /></div>
 
 
 <div dir="rtl">از player settings قسمت publishing settings تیک custom gradle template رو بزارید.</div>
+
+<div dir="rtl">خطوط زیر را در بخش android فایل mainTemplate.gradle در صورتی که وجود ندارد اضافه کنید.</div>
+
+```gradle
+android {
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+```
+
+#### <div dir="rtl">برای اضافه کردن کتابخانه‌های مورد نیاز ۲ روش وجود دارد از هرکدام که مایل هستید استفاده کنید.</div>
+#### <div dir="rtl">روش اول اتسفاده از gradle</div>
+
 <div dir="rtl">خطوط زیر را در بخش dependencies فایل mainTemplate.gradle در مسیر Assets/Plugins/Android اضافه کنید. توجه داشته باشید که ۲ قسمت dependencies وجود دارد، این تغییرات باید در قسمت دوم انجام شود.</div>
 
 ```gradle
@@ -44,18 +59,28 @@ allprojects {
 ...
 ```
 
-<div dir="rtl">خطوط زیر را در بخش android فایل mainTemplate.gradle در صورتی که وجود ندارد اضافه کنید.</div>
+<div dir="rtl">هنگام import یونیتی‌پکیج تپسل پلاس تیک قسمت playServicesResolver و TapsellPlusDependencies.xml را بردارید.</div>
 
-```gradle
-android {
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-  }
-}
+#### <div dir="rtl">روش دوم اتسفاده از resolver</div>
+
+<div dir="rtl">هنگام import کردن unityPackage تپسل پلاس تیک تمامی قسمت‌ها را بزارید.</div>
+<div dir="rtl">در صورتی که تنظیمات ریزالور بر روی حالت auto-resolution میباشد، لایبراری های تپسل پلاس به صورت خودکار اضافه میشود. در غیر اینصورت به صورت دستی Resolve را انجام دهید.</div>
+<div dir="rtl">فعال یا غیر فعال کردن auto-resolution از مسیر زیر انجام میشود.</div>
+
+```
+Assets > Play Services Resolver > Android Resolver > Settings
+```
+
+<div dir="rtl">برای Resolve دستی نیز از این مسیر اقدام نمایید.</div>
+
+```
+Assets > Play Services Resolver > Android Resolver > Resolve
+Assets > Play Services Resolver > Android Resolver > Force Resolve
 ```
 
 ## <div dir="rtl">اضافه کردن سایر Ad Network ها</div>
+
+#### <div dir="rtl">روش اول اتسفاده از gradle</div>
 
 <div dir="rtl">در قسمت dependencies فایل mainTemplate.gradle این موارد را اضافه کنید. برای کسب اطلاعات بیشتر در مورد هر ad network میتوانید با همکاران ما در تیم رسانه صحبت کنید.</div>
 
@@ -80,6 +105,42 @@ dependencies {
   implementation 'com.facebook.android:audience-network-sdk:5.3.0'
 **DEPS**}
 ...
+```
+
+#### <div dir="rtl">روش دوم اتسفاده از resolver</div>
+
+<div dir="rtl">خطوط مربوط به هر adNetwork که مایل هستید را به فایل  TapsellPlusDependencies.xml اضافه کنید.</div>
+
+```xml
+<dependencies>
+  <androidPackages>
+
+    <repositories>
+      <repository>https://dl.bintray.com/tapsellorg/maven</repository>
+    </repositories>
+
+    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:0.2.6"/>
+    ......
+
+    <!--for admob-->
+    <androidPackage spec="com.google.android.gms:play-services-ads:17.2.1"/>
+    <androidPackage spec="com.google.android.gms:play-services-basement:16.2.0"/>
+    <androidPackage spec="com.google.android.gms:play-services-ads-identifier:16.0.0"/>
+    <androidPackage spec="com.google.android.gms:play-services-location:16.0.0"/>
+
+    <!--for Chartboost-->
+    <androidPackage spec="ir.tapsell.sdk:chartboost-sdk-android:7.3.1"/>
+
+    <!--for unityads-->
+    <androidPackage spec="com.unity3d.ads:unity-ads:3.0.0"/>
+
+    <!--for facebook-->
+    <androidPackage spec="com.facebook.android:audience-network-sdk:5.3.0"/>
+
+    ......
+
+  </androidPackages>
+</dependencies>
 ```
 
 ## <div dir="rtl">تنظیمات proguard</div>
