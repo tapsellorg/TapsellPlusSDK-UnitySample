@@ -32,7 +32,7 @@ android {
 ...
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
-  implementation 'ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.1'
+  implementation 'ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.2'
 **DEPS**}
 ...
 ```
@@ -119,7 +119,7 @@ dependencies {
       <repository>https://dl.bintray.com/tapsellorg/maven</repository>
     </repositories>
 
-    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.1"/>
+    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.2"/>
     ......
 
     <!--for admob-->
