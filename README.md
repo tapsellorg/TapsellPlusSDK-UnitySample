@@ -63,7 +63,7 @@ allprojects {
 
 #### <div dir="rtl">روش دوم استفاده از resolver</div>
 
-<div dir="rtl">هنگام import کردن unityPackage تپسل پلاس تیک تمامی قسمت‌ها را بزارید.</div>
+<div dir="rtl">هنگام import کردن unityPackage تپسل پلاس تیک تمامی قسمت‌ها را بزارید. تنها تیک mainTemplate.gradle زا بردارید.</div>
 <div dir="rtl">در صورتی که تنظیمات ریزالور بر روی حالت auto-resolution میباشد، لایبراری های تپسل پلاس به صورت خودکار اضافه میشود. در غیر اینصورت به صورت دستی Resolve را انجام دهید.</div>
 <div dir="rtl">فعال یا غیر فعال کردن auto-resolution از مسیر زیر انجام میشود.</div>
 
