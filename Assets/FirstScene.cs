@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class FirstScene : MonoBehaviour {
-
-  private readonly string TAPSELL_PLUS_KEY = "alsoatsrtrotpqacegkehkaiieckldhrgsbspqtgqnbrrfccrtbdomgjtahflchkqtqosa";
+  
+  private const string TapsellPlusKey = "alsoatsrtrotpqacegkehkaiieckldhrgsbspqtgqnbrrfccrtbdomgjtahflchkqtqosa";
 
   void Start () {
-    TapsellPlus.initialize (TAPSELL_PLUS_KEY);
+    TapsellPlus.initialize (TapsellPlusKey);
   }
 
   public void changeScenes (string name) {

@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class InterstititalScene : MonoBehaviour {
 
-	private readonly string ZONE_ID = "5cfaa942e8d17f0001ffb292";
+//	private const string TapsellInterstitialKey =	"5cfaa942e8d17f0001ffb292";
+	private const string AdmobInterstitialKey =	"5cfaa9b0e8d17f0001ffb293";
+//	private const string FacebookInterstitialKey =	"5cfaa975aede570001d55539";
+	
+	private readonly string ZONE_ID = AdmobInterstitialKey;
 
 	public void Request () {
 		TapsellPlus.requestInterstitial (ZONE_ID,
