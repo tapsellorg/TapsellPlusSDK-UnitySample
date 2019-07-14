@@ -258,7 +258,7 @@ TapsellPlus.hideBanner ();
 ```cs
 public void Request () {
   TapsellPlus.requestNativeBanner (this, ZONE_ID,
-    (TapsellNativeBannerAd result) => {
+    (TapsellPlusNativeBannerAd result) => {
       Debug.Log ("on response");
       //showing ad
     },
