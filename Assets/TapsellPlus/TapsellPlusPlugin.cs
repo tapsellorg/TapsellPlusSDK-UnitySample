@@ -1,10 +1,8 @@
 using UnityEngine;
 
-namespace TapsellPlusSDK
-{
-    public class TapsellPlusPlugin
-    {
-        public virtual void initialize(string key) { }
+namespace TapsellPlusSDK {
+    public class TapsellPlusPlugin {
+        public virtual void initialize (string key) { }
 
         public virtual void setDebugMode (int logLevel) { }
 

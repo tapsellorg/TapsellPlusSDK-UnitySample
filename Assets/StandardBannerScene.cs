@@ -4,10 +4,7 @@ using TapsellPlusSDK;
 using UnityEngine;
 
 public class StandardBannerScene : MonoBehaviour {
-
-//    private const string TapsellStandardBannerKey =	"5cfaaa30e8d17f0001ffb294";
-    private const string AdmobStandardBannerKey =	"5cfaaa4ae8d17f0001ffb295";
-    private readonly string ZONE_ID = AdmobStandardBannerKey;
+    private readonly string ZONE_ID = "5cfaaa30e8d17f0001ffb294";
 
     public void Show () {
         TapsellPlus.showBannerAd (ZONE_ID, BannerType.BANNER_320x50, Gravity.CENTER, Gravity.BOTTOM,

@@ -2,8 +2,7 @@
 using TapsellPlusSDK;
 using UnityEngine;
 
-namespace TapsellPlusSDK
-{
+namespace TapsellPlusSDK {
 	public class TapsellPlusMessageHandler : MonoBehaviour {
 
 		public void notifyRequestResponse (String zoneId) {

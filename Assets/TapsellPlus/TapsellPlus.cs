@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using AOT;
 using UnityEngine;
 using UnityEngine.Networking;
-using AOT;
 
 namespace TapsellPlusSDK {
 
@@ -28,18 +28,16 @@ namespace TapsellPlusSDK {
 	public class TapsellError {
 		public string zoneId;
 		public string message;
-		public TapsellError(){}
+		public TapsellError () { }
 
-		public TapsellError(string zoneId, string message)
-		{
+		public TapsellError (string zoneId, string message) {
 			this.zoneId = zoneId;
 			this.message = message;
 		}
 	}
 
 	[Serializable]
-	public class TapsellPlusNativeBannerAd
-	{
+	public class TapsellPlusNativeBannerAd {
 		public string zoneId;
 		public string adId;
 		public string title;
@@ -101,101 +99,99 @@ namespace TapsellPlusSDK {
 				tapsellPlusManager = new GameObject ("TapsellPlusManager");
 				UnityEngine.Object.DontDestroyOnLoad (tapsellPlusManager);
 				tapsellPlusManager.AddComponent<TapsellPlusMessageHandler> ();
-				
-				plugin = new TapsellPlusPlugin();
+
+				plugin = new TapsellPlusPlugin ();
 				#if UNITY_ANDROID && !UNITY_EDITOR
-				plugin = new TapsellPlusAndroidPlugin();
+				plugin = new TapsellPlusAndroidPlugin ();
 				#endif
-
+				
 				#if UNITY_IOS && !UNITY_EDITOR
-				plugin = new TapsellPlusIOSPlugin();
+				plugin = new TapsellPlusIOSPlugin ();
 				#endif
 
-				plugin.initialize(key);
+				plugin.initialize (key);
 			}
 		}
 
-		internal static GameObject getTapsellPlusManager()
-		{
+		internal static GameObject getTapsellPlusManager () {
 			// Used in iOS Plugin
 			return tapsellPlusManager;
 		}
-		
-		private static  void AddToPool<T>(IDictionary<string, Action<T>> pool, string zoneId, Action<T> item) {
+
+		private static void AddToPool<T> (IDictionary<string, Action<T>> pool, string zoneId, Action<T> item) {
 			if (pool.ContainsKey (zoneId)) {
 				pool.Remove (zoneId);
 			}
 			pool.Add (zoneId, item);
 		}
 
-		private static void CallIfAvailable<T>(IDictionary<string, Action<T>> pool, string zoneId, T input) {
+		private static void CallIfAvailable<T> (IDictionary<string, Action<T>> pool, string zoneId, T input) {
 			if (pool.ContainsKey (zoneId)) {
 				pool[zoneId] (input);
 			}
 		}
 
 		public static void addFacebookTestDevice (string hash) {
-			plugin.addFacebookTestDevice(hash);
+			plugin.addFacebookTestDevice (hash);
 		}
 
 		public static void setDebugMode (int logLevel) {
-			plugin.setDebugMode(logLevel);
+			plugin.setDebugMode (logLevel);
 		}
 
 		public static void requestRewardedVideo (
 			string zoneId, Action<string> onRequestResponse, Action<TapsellError> onRequestError) {
-			AddToPool(requestResponsePool, zoneId, onRequestResponse);
-			AddToPool(requestErrorPool, zoneId, onRequestError);
+			AddToPool (requestResponsePool, zoneId, onRequestResponse);
+			AddToPool (requestErrorPool, zoneId, onRequestError);
 
-			plugin.requestRewardedVideo(zoneId);
+			plugin.requestRewardedVideo (zoneId);
 		}
 
-		public static void requestInterstitial(
-			string zoneId, Action<string> onRequestResponse, Action<TapsellError> onRequestError)
-		{
-			AddToPool(requestResponsePool, zoneId, onRequestResponse);
-			AddToPool(requestErrorPool, zoneId, onRequestError);
+		public static void requestInterstitial (
+			string zoneId, Action<string> onRequestResponse, Action<TapsellError> onRequestError) {
+			AddToPool (requestResponsePool, zoneId, onRequestResponse);
+			AddToPool (requestErrorPool, zoneId, onRequestError);
 
-			plugin.requestInterstitial(zoneId);
+			plugin.requestInterstitial (zoneId);
 		}
 
 		public static void showAd (
-			string zoneId, Action<string> onShowAd, Action<string> onCloseAd, 
+			string zoneId, Action<string> onShowAd, Action<string> onCloseAd,
 			Action<string> onReward, Action<TapsellError> onError) {
-			
-			AddToPool(openAdPool, zoneId, onShowAd);
-			AddToPool(closeAdPool, zoneId, onCloseAd);
-			AddToPool(rewardPool, zoneId, onReward);
-			AddToPool(errorPool, zoneId, onError);
-			
-			plugin.showAd(zoneId);
+
+			AddToPool (openAdPool, zoneId, onShowAd);
+			AddToPool (closeAdPool, zoneId, onCloseAd);
+			AddToPool (rewardPool, zoneId, onReward);
+			AddToPool (errorPool, zoneId, onError);
+
+			plugin.showAd (zoneId);
 		}
 
 		public static void showBannerAd (
 			string zoneId, int bannerType, int horizontalGravity, int verticalGravity,
-				Action<string> onRequestResponse, Action<TapsellError> onRequestError) {
+			Action<string> onRequestResponse, Action<TapsellError> onRequestError) {
 
-			AddToPool(requestResponsePool, zoneId, onRequestResponse);
-			AddToPool(requestErrorPool, zoneId, onRequestError);
+			AddToPool (requestResponsePool, zoneId, onRequestResponse);
+			AddToPool (requestErrorPool, zoneId, onRequestError);
 
-			plugin.showBannerAd(zoneId, bannerType, horizontalGravity, verticalGravity);
+			plugin.showBannerAd (zoneId, bannerType, horizontalGravity, verticalGravity);
 		}
 
 		public static void hideBanner () {
-			plugin.hideBanner();
+			plugin.hideBanner ();
 		}
-		
+
 		public static void requestNativeBanner (
 			MonoBehaviour monoBehaviour, string zoneId, Action<TapsellPlusNativeBannerAd> onRequestResponse, Action<TapsellError> onRequestError) {
-			AddToPool(nativeBannerResponsePool, zoneId, onRequestResponse);
-			AddToPool(requestErrorPool, zoneId, onRequestError);
+			AddToPool (nativeBannerResponsePool, zoneId, onRequestResponse);
+			AddToPool (requestErrorPool, zoneId, onRequestError);
 			mMonoBehaviour = monoBehaviour;
 
-			plugin.requestNativeBanner(zoneId);
+			plugin.requestNativeBanner (zoneId);
 		}
-		
+
 		public static void nativeBannerAdClicked (string zoneId, string adId) {
-			plugin.nativeBannerAdClicked(zoneId, adId);
+			plugin.nativeBannerAdClicked (zoneId, adId);
 		}
 
 		internal static void onNativeRequestResponse (TapsellPlusNativeBannerAd result) {
@@ -203,10 +199,10 @@ namespace TapsellPlusSDK {
 				if (mMonoBehaviour != null && mMonoBehaviour.isActiveAndEnabled) {
 					mMonoBehaviour.StartCoroutine (loadNativeBannerAdImages (result));
 				} else {
-					onRequestError(new TapsellError(result.zoneId,"Invalid MonoBehaviour Object"));
+					onRequestError (new TapsellError (result.zoneId, "Invalid MonoBehaviour Object"));
 				}
 			} else {
-				Debug.Log("Invalid Native Banner Ad Result");
+				Debug.Log ("Invalid Native Banner Ad Result");
 			}
 		}
 
@@ -240,33 +236,32 @@ namespace TapsellPlusSDK {
 					result.landscapeBannerImage = ((DownloadHandlerTexture) wwwLandscape.downloadHandler).texture;
 				}
 			}
-			
-			CallIfAvailable(nativeBannerResponsePool, result.zoneId, result);
+
+			CallIfAvailable (nativeBannerResponsePool, result.zoneId, result);
 		}
-		
-		
+
 		internal static void onRequestResponse (String zoneId) {
-			CallIfAvailable(requestResponsePool, zoneId, zoneId);
+			CallIfAvailable (requestResponsePool, zoneId, zoneId);
 		}
 
 		internal static void onRequestError (TapsellError error) {
-			CallIfAvailable(requestErrorPool, error.zoneId, error);
+			CallIfAvailable (requestErrorPool, error.zoneId, error);
 		}
 
 		internal static void onOpenAd (String zoneId) {
-			CallIfAvailable(openAdPool, zoneId, zoneId);
+			CallIfAvailable (openAdPool, zoneId, zoneId);
 		}
 
 		internal static void onCloseAd (String zoneId) {
-			CallIfAvailable(closeAdPool, zoneId, zoneId);
+			CallIfAvailable (closeAdPool, zoneId, zoneId);
 		}
 
 		internal static void onReward (String zoneId) {
-			CallIfAvailable(rewardPool, zoneId, zoneId);
+			CallIfAvailable (rewardPool, zoneId, zoneId);
 		}
 
 		internal static void onError (TapsellError error) {
-			CallIfAvailable(errorPool, error.zoneId, error);
+			CallIfAvailable (errorPool, error.zoneId, error);
 		}
 	}
 }

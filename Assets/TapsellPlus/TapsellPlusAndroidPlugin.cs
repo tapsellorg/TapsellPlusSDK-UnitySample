@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 
-namespace TapsellPlusSDK
-{
-	public class TapsellPlusAndroidPlugin : TapsellPlusPlugin
-	{
+namespace TapsellPlusSDK {
+	public class TapsellPlusAndroidPlugin : TapsellPlusPlugin {
 		#if UNITY_ANDROID && !UNITY_EDITOR
 		private static AndroidJavaClass tapsellPlus;
 
@@ -15,13 +13,12 @@ namespace TapsellPlusSDK
 			tapsellPlus?.CallStatic ("initialize", key);
 		}
 
-		public override void initialize(string key) {
-			setJavaObject();
-			initializeSDK(key);
+		public override void initialize (string key) {
+			setJavaObject ();
+			initializeSDK (key);
 		}
 
-		public override void setDebugMode (int logLevel)
-		{
+		public override void setDebugMode (int logLevel) {
 			tapsellPlus?.CallStatic ("setDebugMode", logLevel);
 		}
 
@@ -56,8 +53,6 @@ namespace TapsellPlusSDK
 		public override void nativeBannerAdClicked (string zoneId, string adId) {
 			tapsellPlus?.CallStatic ("nativeBannerAdClicked", zoneId, adId);
 		}
-		
 		#endif
 	}
-
 }
