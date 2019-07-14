@@ -32,7 +32,7 @@ android {
 ...
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
-  implementation 'ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.2'
+  implementation 'ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.5'
 **DEPS**}
 ...
 ```
@@ -63,7 +63,7 @@ allprojects {
 
 #### <div dir="rtl">روش دوم استفاده از resolver</div>
 
-<div dir="rtl">هنگام import کردن unityPackage تپسل پلاس تیک تمامی قسمت‌ها را بزارید.</div>
+<div dir="rtl">هنگام import کردن unityPackage تپسل پلاس تیک تمامی قسمت‌ها را بزارید. تنها تیک mainTemplate.gradle زا بردارید.</div>
 <div dir="rtl">در صورتی که تنظیمات ریزالور بر روی حالت auto-resolution میباشد، لایبراری های تپسل پلاس به صورت خودکار اضافه میشود. در غیر اینصورت به صورت دستی Resolve را انجام دهید.</div>
 <div dir="rtl">فعال یا غیر فعال کردن auto-resolution از مسیر زیر انجام میشود.</div>
 
@@ -91,9 +91,6 @@ dependencies {
   ...
   //for adMob
   implementation 'com.google.android.gms:play-services-ads:17.2.1'
-  implementation 'com.google.android.gms:play-services-basement:16.2.0'
-  implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
-  implementation 'com.google.android.gms:play-services-location:16.0.0' 
   
   //for unityAds
   implementation 'com.unity3d.ads:unity-ads:3.0.0'
@@ -119,14 +116,11 @@ dependencies {
       <repository>https://dl.bintray.com/tapsellorg/maven</repository>
     </repositories>
 
-    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.2"/>
+    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.5"/>
     ......
 
     <!--for admob-->
     <androidPackage spec="com.google.android.gms:play-services-ads:17.2.1"/>
-    <androidPackage spec="com.google.android.gms:play-services-basement:16.2.0"/>
-    <androidPackage spec="com.google.android.gms:play-services-ads-identifier:16.0.0"/>
-    <androidPackage spec="com.google.android.gms:play-services-location:16.0.0"/>
 
     <!--for Chartboost-->
     <androidPackage spec="ir.tapsell.sdk:chartboost-sdk-android:7.3.1"/>
