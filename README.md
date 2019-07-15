@@ -1,6 +1,6 @@
 
 
-## <div dir="rtl">آموزش راه اندازی کتاب‌خانه TapsellPlus در Unity</div>
+## <div dir="rtl">آموزش راه اندازی کتاب‌خانه TapsellPlus در Unity پلتفرم Android</div>
 
 #### <div dir="rtl">برای استفاده از این کتابخانه باید از build system گردل استفاده کنید. همچنین سعی کنید از آخرین نسخه unity استفاده کنید.</div>
 
@@ -141,8 +141,42 @@ dependencies {
 
 <div dir="rtl">تنظیمات پروگوارد را از  <a href="https://github.com/tapsellorg/TapsellPlusSDK-AndroidSample/blob/master/app/proguard-rules.pro">این فایل</a> دریافت کنید.</div>
 
+<br /><br />
+## <div dir="rtl">آموزش راه اندازی کتاب‌خانه TapsellPlus در Unity پلتفرم iOS</div>
+### <div dir="rtl">نصب Cocoapods</div>
+<div dir="rtl">تپسل پلاس برای استفاده هرچه ساده تر بروی Cocoapods متشر شده است. در صورتی که تا به حال Cocoapods را روی سیستم تان نصب نکرده اید، می­توانید با دستور زیر این کار را انجام دهید:</div>
+
+```sh
+$ sudo gem install cocoapods
+```
+
+<div dir="rtl">برای کسب اطلاعات بیشتر می­توانید به وبسایت <a href="https://cocoapods.org/">Cocoapods</a> مراجعه کنید</div>
 
 
+### <div dir="rtl"><br />اضافه کردن تپسل پلاس به Podfile</div>
+<div dir="rtl">خطوط زیر را به Podfile خود اضافه کنید:</div>
+
+```ruby
+pod ‘TapsellPlusSDK’, ‘1.0.0’
+pod ‘TapsellPlusSDK/UnityPlugin’, ‘1.0.0’
+```
+<div dir="rtl">با این خط، تپسل پلاس و تمامی کتابخانه های مورد نیاز آن دانلود شده، تنظیمات لازم برای هر کدام اعمال شده و به پروژه شما اضافه می­گردند.</div>
+
+### <div dir="rtl"><br />آپدیت فایل .plist پروژه</div>
+<div dir="rtl">با انتشار iOS 9 , اپل سیستم ATS را معرفی نمود که طبق آن لازم است اپلیکیشن‌ها از SSL با مشخصات خاصی برای ارتباطات شبکه استفاده کنند. در حال حاضر، لازم است که برای استفاده از تبلیغات تپسل ATS در اپلیکیشن غیرفعال شود.
+جهت جلوگیری از مداخله ATS در پخش تبلیغات، قسمت زیر را به plist پروژه خود اضافه کنید.</div>
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+</dict>
+```
+
+
+
+<br /><br />
 ## <div dir="rtl">راه اندازی تپسل پلاس</div>
 
 <div dir="rtl">کلید تپسل را از <a href="https://dashboard.tapsell.ir/">پنل</a> دریافت کنید.</div>
