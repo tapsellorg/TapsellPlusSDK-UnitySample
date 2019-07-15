@@ -173,11 +173,12 @@ pod ‘TapsellPlusSDK/UnityPlugin’, ‘1.0.0’
     <true/>
 </dict>
 ```
-
+<br />
 <p align="center">
 <img src="Images/img_one.png" alt="Kitten" title="tapsellplus" width="600" height="80" />
 </p>
 
+<br />
 <div dir="rtl">با انتشار نسخه iOS 9، شرکت اپل ارتباطات بین اپلیکیشن‌ها  (canOpenUrl) را محدود کرده است و هر اپلیکیشن باید مشخص کند چه اپلیکیشن‌های دیگری را باز خواهد نمود. تپسل از تابع canOpenUrl برای تصمیم‌گیری در مورد انجام عمل نهایی در بنرهای تبلیغات استفاده می‌کند. برای فعالسازی deep-linking بین SDK تپسل و سرویس‌های مختلف، بخش زیر را به plist پروژه خود اضافه کنید..</div>
 
 ```xml
@@ -189,6 +190,8 @@ pod ‘TapsellPlusSDK/UnityPlugin’, ‘1.0.0’
     <string>tel</string>
 </array>
 ```
+
+<br />
 <p align="center">
 <img src="Images/img_two.png" alt="Kitten" title="tapsellplus" width="600" height="130" />
 </p>
@@ -196,11 +199,15 @@ pod ‘TapsellPlusSDK/UnityPlugin’, ‘1.0.0’
 ### <div dir="rtl"><br />آپدیت تنظیمات بیلد</div>
 <div dir="rtl">فلگ –ObjC را به Other Linker Flags در Build Setting اضافه کنید.</div>
 
+<br />
 <p align="center">
 <img src="Images/img_three.png" alt="Kitten" title="tapsellplus" width="600" height="130" />
 </p>
 
+
+<br />
 <div dir="rtl">فلگ Always Embed Swift Standard Libraries را در پروژه خود فعال کنید.</div>
+<br />
 <p align="center">
 <img src="Images/img_four.png" alt="Kitten" title="tapsellplus" width="600" height="130" />
 </p>
