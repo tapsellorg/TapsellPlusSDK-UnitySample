@@ -50,6 +50,10 @@ namespace TapsellPlusSDK {
 			tapsellPlus?.CallStatic ("hideBanner");
 		}
 
+		public override void displayBanner () {
+			tapsellPlus?.CallStatic ("displayBanner");
+		}
+
 		public override void nativeBannerAdClicked (string zoneId, string adId) {
 			tapsellPlus?.CallStatic ("nativeBannerAdClicked", zoneId, adId);
 		}
