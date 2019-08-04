@@ -35,7 +35,6 @@
         <repository>https://adcolony.bintray.com/AdColony</repository>
       </repositories>
     </androidPackage>
-    
   </androidPackages>
 </dependencies>
 
