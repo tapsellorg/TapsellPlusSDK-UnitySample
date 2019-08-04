@@ -19,9 +19,8 @@ allprojects {
             dirs 'libs'
         }
 
-        maven {
-            url 'https://dl.bintray.com/tapsellorg/maven'
-        }
+        maven { url 'https://dl.bintray.com/tapsellorg/maven'}
+        maven { url  'https://adcolony.bintray.com/AdColony' }
     }
 }
 
@@ -74,6 +73,7 @@ android {
         }
         versionCode **VERSIONCODE**
         versionName '**VERSIONNAME**'
+        multiDexEnabled true
     }
 
     lintOptions {
