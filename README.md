@@ -7,7 +7,7 @@
 ### <div dir="rtl">اضافه کردن کتابخانه به پروژه</div>
 
 <div dir="rtl">نسخه 1.0</div>
-<div dir="rtl">ابتدا <a href="https://github.com/tapsellorg/TapsellPlusSDK-UnitySample/releases/download/v1.0/TapsellPlusUnity-v1.0.unitypackage">unity package</a> تپسل پلاس را دانلود و مطابق توضیحات زیر به پروژه اضافه کنید. سپس هر adNetwork که تپسل پشتیبانی میکند و مایل هستید را مطابق توضیحات به پروژه اضافه کنید. در انتها با روش‌های تست مطمعن شوید که adNetwork مورد نظر به درستی کار میکند.<br /> <br /></div>
+<div dir="rtl">ابتدا <a href="https://github.com/tapsellorg/TapsellPlusSDK-UnitySample/releases/download/v2.0/TapsellPlusUnity-v2.0.unitypackage">unity package</a> تپسل پلاس را دانلود و مطابق توضیحات زیر به پروژه اضافه کنید. سپس هر adNetwork که تپسل پشتیبانی میکند و مایل هستید را مطابق توضیحات به پروژه اضافه کنید. در انتها با روش‌های تست مطمعن شوید که adNetwork مورد نظر به درستی کار میکند.<br /> <br /></div>
 
 
 <div dir="rtl">از player settings قسمت publishing settings تیک custom gradle template رو بزارید.</div>
@@ -100,6 +100,17 @@ dependencies {
 
   //for facebook
   implementation 'com.facebook.android:audience-network-sdk:5.3.0'
+  implementation 'com.facebook.android:facebook-android-sdk:5.2.0'
+  
+  //for adcolony
+  implementation 'com.adcolony:sdk:3.3.11'
+  
+  //for applovin
+  implementation 'com.applovin:applovin-sdk:9.7.2'
+  
+  //for vungle
+  implementation 'com.vungle:publisher-sdk-android:6.4.11'
+  
 **DEPS**}
 ...
 ```
@@ -111,28 +122,37 @@ dependencies {
 ```xml
 <dependencies>
   <androidPackages>
+    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.7">
+      <repositories>
+        <repository>https://dl.bintray.com/tapsellorg/maven</repository>
+        <repository>https://adcolony.bintray.com/AdColony</repository>
+      </repositories>
+    </androidPackage>
 
-    <repositories>
-      <repository>https://dl.bintray.com/tapsellorg/maven</repository>
-    </repositories>
+    <androidPackage spec="ir.tapsell.sdk:chartboost-sdk-android:7.3.1">
+    </androidPackage>
 
-    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.5"/>
-    ......
+    <androidPackage spec="com.unity3d.ads:unity-ads:3.0.0">
+    </androidPackage>
 
-    <!--for admob-->
-    <androidPackage spec="com.google.android.gms:play-services-ads:17.2.1"/>
+    <androidPackage spec="com.google.android.gms:play-services-ads:17.2.1">
+    </androidPackage>
 
-    <!--for Chartboost-->
-    <androidPackage spec="ir.tapsell.sdk:chartboost-sdk-android:7.3.1"/>
+    <androidPackage spec="com.facebook.android:audience-network-sdk:5.3.0">
+    </androidPackage>
 
-    <!--for unityads-->
-    <androidPackage spec="com.unity3d.ads:unity-ads:3.0.0"/>
+    <androidPackage spec="com.facebook.android:facebook-android-sdk:5.2.0">
+    </androidPackage>
 
-    <!--for facebook-->
-    <androidPackage spec="com.facebook.android:audience-network-sdk:5.3.0"/>
+    <androidPackage spec="com.applovin:applovin-sdk:9.7.2">
+    </androidPackage>
 
-    ......
+    <androidPackage spec="com.vungle:publisher-sdk-android:6.4.11">
+    </androidPackage>
 
+    <androidPackage spec="com.adcolony:sdk:3.3.11">
+    </androidPackage>
+    
   </androidPackages>
 </dependencies>
 ```
