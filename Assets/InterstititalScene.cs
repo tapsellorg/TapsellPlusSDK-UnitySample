@@ -4,8 +4,7 @@ using TapsellPlusSDK;
 using UnityEngine;
 
 public class InterstititalScene : MonoBehaviour {
-
-	private readonly string ZONE_ID = "5c71254ba345580001f15275";
+	private readonly string ZONE_ID = "5cfaa942e8d17f0001ffb292";
 
 	public void Request () {
 		TapsellPlus.requestInterstitial (ZONE_ID,

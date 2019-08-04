@@ -1,18 +1,10 @@
 <dependencies>
   <androidPackages>
-    <androidPackage spec="com.google.code.gson:gson:2.8.5">
-    </androidPackage>
-    <androidPackage spec="com.squareup.retrofit2:retrofit:2.5.0">
-    </androidPackage>
-    <androidPackage spec="com.squareup.retrofit2:converter-gson:2.5.0">
-    </androidPackage>
-    <androidPackage spec="com.squareup.okhttp3:logging-interceptor:3.12.1">
-    </androidPackage>
-
-    <androidPackage spec="ir.tapsell.sdk:tapsell-sdk-android:4.2.7">
-    </androidPackage>
-
-    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:0.2.6">
+    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.7">
+      <repositories>
+        <repository>https://dl.bintray.com/tapsellorg/maven</repository>
+        <repository>https://adcolony.bintray.com/AdColony</repository>
+      </repositories>
     </androidPackage>
 
     <androidPackage spec="ir.tapsell.sdk:chartboost-sdk-android:7.3.1">
@@ -21,18 +13,23 @@
     <androidPackage spec="com.unity3d.ads:unity-ads:3.0.0">
     </androidPackage>
 
-    <androidPackage spec="com.google.android.gms:play-services-basement:16.2.0">
-    </androidPackage>
-    <androidPackage spec="com.google.android.gms:play-services-ads-identifier:16.0.0">
-    </androidPackage>
-    <androidPackage spec="com.google.android.gms:play-services-location:16.0.0">
-    </androidPackage>
     <androidPackage spec="com.google.android.gms:play-services-ads:17.2.1">
     </androidPackage>
 
-    <repositories>
-      <repository>https://dl.bintray.com/tapsellorg/maven</repository>
-    </repositories>
+    <androidPackage spec="com.facebook.android:audience-network-sdk:5.3.0">
+    </androidPackage>
+
+    <androidPackage spec="com.facebook.android:facebook-android-sdk:5.2.0">
+    </androidPackage>
+
+    <androidPackage spec="com.applovin:applovin-sdk:9.7.2">
+    </androidPackage>
+
+    <androidPackage spec="com.vungle:publisher-sdk-android:6.4.11">
+    </androidPackage>
+
+    <androidPackage spec="com.adcolony:sdk:3.3.11">
+    </androidPackage>
+    
   </androidPackages>
 </dependencies>
-

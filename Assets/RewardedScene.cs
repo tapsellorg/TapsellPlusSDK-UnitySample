@@ -4,8 +4,7 @@ using TapsellPlusSDK;
 using UnityEngine;
 
 public class RewardedScene : MonoBehaviour {
-
-	private readonly string ZONE_ID = "5c706876a345580001d40822";
+	private readonly string ZONE_ID = "5cfaa802e8d17f0001ffb28e";
 
 	public void Request () {
 		TapsellPlus.requestRewardedVideo (ZONE_ID,
