@@ -30,7 +30,7 @@ apply plugin: 'com.android.application'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.5'
+    implementation 'ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.7'
 
     //for adMob
     implementation 'com.google.android.gms:play-services-ads:17.2.1'
@@ -43,6 +43,17 @@ dependencies {
 
     //for facebook
     implementation 'com.facebook.android:audience-network-sdk:5.3.0'
+    implementation 'com.facebook.android:facebook-android-sdk:5.2.0'
+
+    //for adcolony
+    implementation 'com.adcolony:sdk:3.3.11'
+
+    //for applovin
+    implementation 'com.applovin:applovin-sdk:9.7.2'
+
+    //for vungle
+    implementation 'com.vungle:publisher-sdk-android:6.4.11'
+
 **DEPS**}
 
 android {
@@ -71,22 +82,24 @@ android {
 
     aaptOptions {
         noCompress = ['.unity3d', '.ress', '.resource', '.obb'**STREAMING_ASSETS**]
+        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
     }**SIGN**
 
     buildTypes {
         debug {
-            // minifyEnabled **MINIFY_DEBUG**
-            // useProguard **PROGUARD_DEBUG**
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-unity.txt'**USER_PROGUARD**
+            minifyEnabled **MINIFY_DEBUG**
+            useProguard **PROGUARD_DEBUG**
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-unity.txt'**USER_PROGUARD****SIGNCONFIG**
             jniDebuggable true
         }
         release {
-            // minifyEnabled **MINIFY_RELEASE**
-            // useProguard **PROGUARD_RELEASE**
+            minifyEnabled **MINIFY_RELEASE**
+            useProguard **PROGUARD_RELEASE**
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-unity.txt'**USER_PROGUARD****SIGNCONFIG**
         }
     }**PACKAGING_OPTIONS****SPLITS**
 **BUILT_APK_LOCATION**
+**EXTERNAL_SOURCES**
     bundle {
         language {
             enableSplit = false

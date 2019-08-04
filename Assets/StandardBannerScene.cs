@@ -20,4 +20,8 @@ public class StandardBannerScene : MonoBehaviour {
     public void hide () {
         TapsellPlus.hideBanner ();
     }
+
+    public void display () {
+        TapsellPlus.displayBanner ();
+    }
 }

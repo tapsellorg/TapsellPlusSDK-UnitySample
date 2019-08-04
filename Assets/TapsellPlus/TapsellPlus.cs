@@ -181,6 +181,10 @@ namespace TapsellPlusSDK {
 			plugin.hideBanner ();
 		}
 
+		public static void displayBanner () {
+			plugin.displayBanner ();
+		}
+
 		public static void requestNativeBanner (
 			MonoBehaviour monoBehaviour, string zoneId, Action<TapsellPlusNativeBannerAd> onRequestResponse, Action<TapsellError> onRequestError) {
 			AddToPool (nativeBannerResponsePool, zoneId, onRequestResponse);
