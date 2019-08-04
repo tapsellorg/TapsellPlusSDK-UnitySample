@@ -6,7 +6,7 @@
 
 ### <div dir="rtl">اضافه کردن کتابخانه به پروژه</div>
 
-<div dir="rtl">نسخه 1.0</div>
+<div dir="rtl">نسخه 2.0</div>
 <div dir="rtl">ابتدا <a href="https://github.com/tapsellorg/TapsellPlusSDK-UnitySample/releases/download/v2.0/TapsellPlusUnity-v2.0.unitypackage">unity package</a> تپسل پلاس را دانلود و مطابق توضیحات زیر به پروژه اضافه کنید. سپس هر adNetwork که تپسل پشتیبانی میکند و مایل هستید را مطابق توضیحات به پروژه اضافه کنید. در انتها با روش‌های تست مطمعن شوید که adNetwork مورد نظر به درستی کار میکند.<br /> <br /></div>
 
 
@@ -403,17 +403,26 @@ TapsellPlus.initialize("alsoatsrtrotpqacegkehkaiieckldhrgsbspqtgqnbrrfccrtbdomgj
 
 |        Ad Network      |              Ad Type              |ZoneId
 |:------------:|:----------------------------:|:----------------------------:|
-|     Tapsell     |     Rewarded Video    | 5cfaa802e8d17f0001ffb28e|
-|     Tapsell    |    Interstitial    |5cfaa942e8d17f0001ffb292|
-| Tapsell |  Native  |5cfaa9deaede570001d5553a|
-|  Tapsell | Standard |5cfaaa30e8d17f0001ffb294|
-|    Admob    |    Rewarded Video   |5cfaa8aee8d17f0001ffb28f|
-|    Admob    |     Interstitial     |5cfaa9b0e8d17f0001ffb293|
-|    Admob    |     Standard     |5cfaaa4ae8d17f0001ffb295|
-|    Unity Ads    |     Rewarded Video     |5cfaa8eae8d17f0001ffb291|
-|    Chartboost    |     Rewarded Video     |5cfaa8cee8d17f0001ffb290|
-|    Facebook    |     Rewarded Video     |5cfaa838aede570001d55538|
-|    Facebook    |     Interstitial     |5cfaa975aede570001d55539|
+|     Tapsell     |     Rewarded Video    | `5cfaa802e8d17f0001ffb28e`|
+|     Tapsell    |    Interstitial    |`5cfaa942e8d17f0001ffb292`|
+| Tapsell |  Native  |`5cfaa9deaede570001d5553a`|
+|  Tapsell | Standard |`5cfaaa30e8d17f0001ffb294`|
+|    Admob    |    Rewarded Video   |`5cfaa8aee8d17f0001ffb28f`|
+|    Admob    |     Interstitial     |`5cfaa9b0e8d17f0001ffb293`|
+|    Admob    |     Standard     |`5cfaaa4ae8d17f0001ffb295`|
+|    Admob    |     Native     |`5d123c9968287d00019e1a94`|
+|    Admob    |     Native Video     |`5d123d6f68287d00019e1a95`|
+|    Unity Ads    |     Rewarded Video     |`5cfaa8eae8d17f0001ffb291`|
+|    Chartboost    |     Rewarded Video     |`5cfaa8cee8d17f0001ffb290`|
+|    Facebook    |     Rewarded Video     |`5cfaa838aede570001d55538`|
+|    Facebook    |     Interstitial     |`5cfaa975aede570001d55539`|
+|    AdColony    |     Rewarded Video     |`5d3362766de9f600013662d5`|
+|    AdColony    |     Interstitial     |`5d336289e985d50001427acf`|
+|    AppLovin    |     Rewarded Video     |`5d3eb48c3aef7a0001406f84`|
+|    AppLovin    |     Interstitial     |`5d3eb4fa3aef7a0001406f85`|
+|    AppLovin    |     Standard     |`5d3eb5337a9b060001892441`|
+|    Vungle    |     Rewarded Video     |`5d3eb55a7a9b060001892442`|
+|    Vungle    |     Interstitial     |`5d3eb56d3aef7a0001406f86`|
 
 
 <div dir="rtl">زمانی که از facebook استفاده میکنید متنی مشابه زیر در logcat پرینت میشود.</div>
