@@ -14,6 +14,7 @@ namespace TapsellPlusSDK {
 
         public virtual void showBannerAd (string zoneId, int bannerType, int horizontalGravity, int verticalGravity) { }
         public virtual void hideBanner () { }
+        public virtual void displayBanner () { }
 
         public virtual void requestNativeBanner (string zoneId) { }
         public virtual void nativeBannerAdClicked (string zoneId, string adId) { }
