@@ -126,7 +126,7 @@ namespace TapsellPlusSDK {
 		}
 
 		private static void CallIfAvailable<T> (IDictionary<string, Action<T>> pool, string zoneId, T input) {
-			if (pool.ContainsKey (zoneId)) {
+			if (pool != null && pool.ContainsKey (zoneId)) {
 				pool[zoneId] (input);
 			}
 		}
@@ -202,10 +202,13 @@ namespace TapsellPlusSDK {
 				if (mMonoBehaviour != null && mMonoBehaviour.isActiveAndEnabled) {
 					mMonoBehaviour.StartCoroutine (loadNativeBannerAdImages (result));
 				} else {
+					Debug.Log ("Invalid MonoBehaviour Object");
 					onRequestError (new TapsellError (result.zoneId, "Invalid MonoBehaviour Object"));
 				}
+				
 			} else {
 				Debug.Log ("Invalid Native Banner Ad Result");
+				onRequestError (new TapsellError (result.zoneId, "Invalid Native Banner Ad Result"));
 			}
 		}
 
