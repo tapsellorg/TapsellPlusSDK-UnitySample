@@ -122,7 +122,7 @@ dependencies {
 ```xml
 <dependencies>
   <androidPackages>
-    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.7">
+    <androidPackage spec="ir.tapsell.plus:tapsell-plus-sdk-unity:1.0.10">
       <repositories>
         <repository>https://dl.bintray.com/tapsellorg/maven</repository>
         <repository>https://adcolony.bintray.com/AdColony</repository>
