@@ -115,7 +115,7 @@ dependencies {
 ...
 ```
 
-<div dir="rtl">برای adcolony لازم هست ریپازیتوری زیر به build.gradle پروژه اضافه شود.</div>
+<div dir="rtl">برای adcolony لازم هست ریپازیتوری زیر به mainTemplate.gradle پروژه اضافه شود.</div>
 
 ```gradle
 maven {
