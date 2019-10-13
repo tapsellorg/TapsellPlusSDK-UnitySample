@@ -115,6 +115,14 @@ dependencies {
 ...
 ```
 
+<div dir="rtl">برای adcolony لازم هست ریپازیتوری زیر به build.gradle پروژه اضافه شود.</div>
+
+```gradle
+maven {
+  url  "https://adcolony.bintray.com/AdColony"
+}
+```
+
 #### <div dir="rtl">روش دوم استفاده از resolver</div>
 
 <div dir="rtl">خطوط مربوط به هر adNetwork که مایل هستید را به فایل  TapsellPlusDependencies.xml اضافه کنید.</div>
