@@ -6,6 +6,8 @@ namespace TapsellPlusSDK {
 
         public virtual void setDebugMode (int logLevel) { }
 
+        public virtual void setGDPRConsent (bool consent) { }
+
         public virtual void addFacebookTestDevice (string hash) { }
 
         public virtual void requestRewardedVideo (string zoneId) { }

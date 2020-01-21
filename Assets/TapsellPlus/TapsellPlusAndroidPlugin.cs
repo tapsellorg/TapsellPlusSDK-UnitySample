@@ -22,6 +22,10 @@ namespace TapsellPlusSDK {
 			tapsellPlus?.CallStatic ("setDebugMode", logLevel);
 		}
 
+		public override void setGDPRConsent (bool consent) {
+			tapsellPlus?.CallStatic ("setGDPRConsent", consent);
+		}
+
 		public override void addFacebookTestDevice (string hash) {
 			tapsellPlus?.CallStatic ("addFacebookTestDevice", hash);
 		}

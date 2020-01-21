@@ -139,6 +139,10 @@ namespace TapsellPlusSDK {
 			plugin.setDebugMode (logLevel);
 		}
 
+		public static void setGDPRConsent (bool consent) {
+			plugin.setGDPRConsent (consent);
+		}
+
 		public static void requestRewardedVideo (
 			string zoneId, Action<string> onRequestResponse, Action<TapsellError> onRequestError) {
 			AddToPool (requestResponsePool, zoneId, onRequestResponse);
