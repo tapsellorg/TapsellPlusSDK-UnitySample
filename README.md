@@ -185,8 +185,8 @@ $ sudo gem install cocoapods
 <div dir="rtl">خطوط زیر را به Podfile خود اضافه کنید:</div>
 
 ```ruby
-pod ‘TapsellPlusSDK’, ‘1.3.0-r’
-pod ‘TapsellPlusSDK/UnityPlugin’, ‘1.3.0-r’
+pod ‘TapsellPlusSDK’, ‘1.4.0-r’
+pod ‘TapsellPlusSDK/UnityPlugin’, ‘1.4.0-r’
 ```
 <div dir="rtl">با این خط، تپسل پلاس و تمامی کتابخانه های مورد نیاز آن دانلود شده، تنظیمات لازم برای هر کدام اعمال شده و به پروژه شما اضافه می­گردند.</div>
 
