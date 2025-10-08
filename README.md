@@ -1,7 +1,14 @@
+## ~~<div dir="rtl">آموزش راه اندازی کتاب‌خانه TapsellPlus در Unity پلتفرم Android</div>~~
 
+### <div dir="rtl">توجه: این مخزن به  [TapsellPlusSDK-UnityPlugin](https://github.com/tapsellorg/TapsellPlusSDK-UnityPlugin) منتقل شده است.
 
-## <div dir="rtl">آموزش راه اندازی کتاب‌خانه TapsellPlus در Unity پلتفرم Android</div>
-
+---
+---
+---
+---
+---
+---
+---
 #### <div dir="rtl">برای استفاده از این کتابخانه باید از build system گردل استفاده کنید. همچنین سعی کنید از آخرین نسخه unity استفاده کنید.</div>
 
 ### <div dir="rtl">اضافه کردن کتابخانه به پروژه</div>
